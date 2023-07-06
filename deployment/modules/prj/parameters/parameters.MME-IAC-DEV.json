@@ -20,11 +20,9 @@
                     "name": "standard"
                 },
                 "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
-                "accesspolicies": []
+                "accesspolicies": [],
+                "isRequired": true
             }
-        },
-        "iskvRequired": {
-            "value": false
         }
     }
 }
