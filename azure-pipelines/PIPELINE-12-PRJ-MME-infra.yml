@@ -1,7 +1,9 @@
 # Pipeline that deploys the Databricks infrastructure 
 
 trigger:
-- none
+  branches:
+    include:
+    - deployment\modules\prj\parameters\parameters.MME-IAC-DEV.json
 
 variables:
 - template: ../configurations/configuration.variables.yml
