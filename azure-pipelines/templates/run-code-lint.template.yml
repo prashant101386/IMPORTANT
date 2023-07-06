@@ -1,0 +1,12 @@
+parameters:
+  - name: module
+    type: string
+
+jobs:
+  - job: LintCode
+    displayName: Lint code
+    steps:
+      - script: |
+          az bicep build --file deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep
+        name: LintBicepCode
+        displayName: Run Bicep linter

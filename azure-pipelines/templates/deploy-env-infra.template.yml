@@ -1,0 +1,52 @@
+parameters:
+  - name: environment
+    type: string
+  - name: serviceConnection
+    type: string
+  - name: resourceGroup
+    type: string
+  - name: location
+    type: string
+  - name: subscription
+    type: string
+  - name: module
+    type: string
+  - name: project
+    type: string
+
+jobs:
+  - deployment: ${{parameters.project}}_env_deployment
+    displayName: "${{parameters.project}} Environment Deployment"
+    environment: ${{parameters.environment}}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - checkout: self
+
+            - task: AzureResourceManagerTemplateDeployment@3
+              name: RunPreflightValidation
+              displayName: Run preflight validation
+              inputs:
+                connectedServiceName: ${{parameters.serviceConnection}}
+                location: ${{parameters.location}}
+                deploymentMode: Validation
+                resourceGroupName: ${{parameters.resourceGroup}}
+                csmFile: deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep
+                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
+                overrideParameters: >
+                  -subscriptionId ${{parameters.subscription}}
+                  -resourceGroupName ${{parameters.resourceGroup}}
+            - task: AzureResourceManagerTemplateDeployment@3
+              name: DeployBicepFile
+              displayName: Deploy Bicep file
+              inputs:
+                connectedServiceName: ${{parameters.serviceConnection}}
+                location: ${{parameters.location}}
+                deploymentMode: Incremental
+                resourceGroupName: ${{parameters.resourceGroup}}
+                csmFile: deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep
+                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
+                overrideParameters: >
+                  -subscriptionId ${{parameters.subscription}}
+                  -resourceGroupName ${{parameters.resourceGroup}}

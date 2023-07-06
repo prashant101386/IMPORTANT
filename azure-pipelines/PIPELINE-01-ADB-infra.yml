@@ -1,0 +1,79 @@
+# Pipeline that deploys the Databricks infrastructure 
+
+trigger:
+- none
+
+variables:
+- template: ../configurations/configuration.variables.yml
+- template: ../configurations/adb/configuration-infra-DEV.variables.yml # DEV as default env
+
+pool:
+  vmImage: $(VM_VERSION)
+
+stages:
+
+####################
+##  BUILD INFRA  ##
+####################
+
+# Lint the Bicep file.
+- stage: buildinfra
+  displayName: 'Build Environment'
+  jobs: 
+  - template: templates/run-code-lint.template.yml
+    parameters:
+      module: 'adb'
+
+####################
+##  DEPLOY INFRA  ##
+####################
+
+# Deploy DEV Environment
+- stage: deployinfra_dev
+  displayName: 'Deploy DEV Environment'
+  dependsOn: buildinfra
+  variables:
+  - template: ../configurations/adb/configuration-infra-DEV.variables.yml
+  jobs:
+  - template: templates/deploy-env-infra.template.yml
+    parameters:
+      environment: $(ENVIRONMENT)
+      serviceConnection: $(SERVICECONNECTION_RG)
+      resourceGroup: $(RESOURCE_GROUP)
+      location: $(LOCATION)
+      subscription: $(SUBSCRIPTIONID)
+      module: 'adb'
+      project: 'ADB'
+
+
+# Deploy QA Environment
+- stage: deployinfra_QA
+  displayName: 'Deploy QA Environment'
+  variables:
+  - template: ../configurations/adb/configuration-infra-QA.variables.yml
+  jobs:
+  - template: templates/deploy-env-infra.template.yml
+    parameters:
+      environment: ADB-IAC-QA
+      serviceConnection: $(SERVICECONNECTION_RG)
+      resourceGroup: $(RESOURCE_GROUP)
+      location: $(LOCATION)
+      subscription: $(SUBSCRIPTIONID)
+      module: 'adb'
+      project: 'ADB'
+
+# Deploy PROD Environment
+- stage: deployinfra_PROD
+  displayName: 'Deploy PROD Environment'
+  variables:
+  - template: ../configurations/adb/configuration-infra-PROD.variables.yml
+  jobs:
+  - template: templates/deploy-env-infra.template.yml
+    parameters:
+      environment: ADB-IAC-PROD
+      serviceConnection: $(SERVICECONNECTION_RG)
+      resourceGroup: $(RESOURCE_GROUP)
+      location: $(LOCATION)
+      subscription: $(SUBSCRIPTIONID)
+      module: 'adb'
+      project: 'ADB'

@@ -1,0 +1,6 @@
+variables:
+  # QA Environment
+  RESOURCE_GROUP: qmw2dihmmerg01
+  LOCATION: westus2
+  SERVICECONNECTION_RG: QA-CORPTB-CICD-SPK0038145
+  SUBSCRIPTIONID: "eb9feab1-82b5-481c-9c7f-2acb5c2e6a59"

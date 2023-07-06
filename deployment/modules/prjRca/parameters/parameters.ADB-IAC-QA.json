@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westus2"
+        },
+        "resourceGroupName": {
+            "value": "qmw2dihrcarg01"
+        },
+        "tags": {
+            "value": {}
+        },
+        "keyVault": {
+            "value": {
+                "name": "qmw2dihrcakv01",
+                "location": "westus2",
+                "sku": {
+                    "family": "A",
+                    "name": "standard"
+                },
+                "tenantId": "505cca53-5750-4134-9501-8d52d5df3cd1",
+                "accesspolicies": []
+            }
+        }
+    }
+}

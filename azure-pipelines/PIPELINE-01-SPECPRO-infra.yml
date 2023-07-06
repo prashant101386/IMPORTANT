@@ -1,0 +1,41 @@
+# Pipeline that deploys SPECPRO infra
+
+trigger:
+  - none
+
+variables:
+  - template: ../configurations/configuration.variables.yml
+  - template: ../configurations/configuration-infra-DEV.variables.yml
+
+pool:
+  vmImage: $(VM_VERSION)
+
+stages:
+
+## BUILD INFRA ##
+
+# Lint the bicep file.
+- stage: buildinfra
+  displayName: 'Build Environment'
+  jobs:
+  - template: templates/run-code-lint.template.yml
+    parameters:
+      module: 'specpro'
+
+## DEPLOY INFRA ##
+
+# Deploy DEV environment
+- stage: deployinfra_dev
+  displayName: 'Deploy DEV Environment'
+  dependsOn: buildinfra
+  variables:
+  - template: ../configurations/configuration-infra-DEV.variables.yml
+  jobs:
+  - template: templates/deploy-env-infra.template.yml
+    parameters:
+      environment: $(ENVIRONMENT)
+      serviceConnection: $(SERVICECONNECTION_RG)
+      resourceGroup: $(RESOURCE_GROUP)
+      location: $(LOCATION)
+      subscription: $(SUBSCRIPTIONID)
+      module: 'specpro'
