@@ -24,7 +24,7 @@
             }
         },
         "iskvRequired": {
-            "value": false
+            "value": true
         }
     }
 }
