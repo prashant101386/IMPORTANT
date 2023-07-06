@@ -44,36 +44,3 @@ stages:
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
       project: 'TCO'
-
-
-# Deploy QA Environment
-- stage: deployinfra_QA
-  displayName: 'Deploy QA Environment'
-  variables:
-  - template: ../configurations/prjtco/configuration-infra-QA.variables.yml
-  jobs:
-  - template: templates/deploy-env-infra.template.yml
-    parameters:
-      environment: TCO-IAC-QA
-      serviceConnection: $(SERVICECONNECTION_RG)
-      resourceGroup: $(RESOURCE_GROUP)
-      location: $(LOCATION)
-      subscription: $(SUBSCRIPTIONID)
-      module: 'prj'
-      project: 'TCO'
-
-# Deploy PROD Environment
-- stage: deployinfra_PROD
-  displayName: 'Deploy PROD Environment'
-  variables:
-  - template: ../configurations/prjtco/configuration-infra-PROD.variables.yml
-  jobs:
-  - template: templates/deploy-env-infra.template.yml
-    parameters:
-      environment: TCO-IAC-PROD
-      serviceConnection: $(SERVICECONNECTION_RG)
-      resourceGroup: $(RESOURCE_GROUP)
-      location: $(LOCATION)
-      subscription: $(SUBSCRIPTIONID)
-      module: 'prj'
-      project: 'TCO'

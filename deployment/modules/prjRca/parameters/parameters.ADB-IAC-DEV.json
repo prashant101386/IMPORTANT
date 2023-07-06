@@ -3,23 +3,23 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "westus2"
+            "value": "centralindia"
         },
         "resourceGroupName": {
-            "value": "dmw2dihrcarg01"
+            "value": "dmw2dihrcarg01-learning"
         },
         "tags": {
             "value": {}
         },
         "keyVault": {
             "value": {
-                "name": "dmw2dihrcakv01",
-                "location": "westus2",
+                "name": "dmw2dihrcakv01-learning",
+                "location": "centralindia",
                 "sku": {
                     "family": "A",
                     "name": "standard"
                 },
-                "tenantId": "505cca53-5750-4134-9501-8d52d5df3cd1",
+                "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
                 "accesspolicies": []
             }
         }
