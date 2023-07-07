@@ -37,6 +37,7 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
+                  -keyVault.isRequired false
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
