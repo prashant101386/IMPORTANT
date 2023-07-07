@@ -33,7 +33,7 @@ jobs:
                 deploymentMode: Validation
                 resourceGroupName: ${{parameters.resourceGroup}}
                 csmFile: deployment/modules/${{parameters.module}}/${{parameters.module}}-delete.bicep
-                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
+                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}-delete.json
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
@@ -46,7 +46,7 @@ jobs:
                 deploymentMode: Complete
                 resourceGroupName: ${{parameters.resourceGroup}}
                 csmFile: deployment/modules/${{parameters.module}}/${{parameters.module}}-delete.bicep
-                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
+                csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}-delete.json
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
