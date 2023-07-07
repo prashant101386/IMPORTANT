@@ -43,5 +43,4 @@ stages:
       location: $(LOCATION)
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
-      project: 'TCO'
-      keyVault.isRequired: false
+      project: 'TCO' 
