@@ -4,3 +4,4 @@ variables:
   LOCATION: centralindia
   SERVICECONNECTION_RG: learningpipelines
   SUBSCRIPTIONID: "e609b895-8521-4e27-a166-510b517292f5"
+  isRequired: false
