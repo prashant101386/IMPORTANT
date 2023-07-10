@@ -16,7 +16,7 @@ parameters:
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment
-    displayName: "${{parameters.project}} Environment Deployment"
+    displayName: "${{parameters.project}} Resource Group Deletion"
     environment: ${{parameters.environment}}
     strategy:
       runOnce:

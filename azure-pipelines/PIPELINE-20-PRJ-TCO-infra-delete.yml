@@ -1,4 +1,4 @@
-# Pipeline that deploys the Databricks infrastructure 
+# Pipeline that destroys TCO resource group and all its resources.
 
 trigger:
 - none

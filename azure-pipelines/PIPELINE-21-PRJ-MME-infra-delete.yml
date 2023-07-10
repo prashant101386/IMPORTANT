@@ -1,4 +1,4 @@
-# Pipeline that deploys the Databricks infrastructure 
+# Pipeline that destroys MME resource group and all its resources.
 
 trigger:
 - none
@@ -20,7 +20,7 @@ stages:
   jobs:
   - template: templates/delete-env-infra.template.yml
     parameters:
-      environment: TCO-IAC-DEV
+      environment: MME-IAC-DEV
       serviceConnection: $(SERVICECONNECTION_RG)
       resourceGroup: $(RESOURCE_GROUP)
       location: $(LOCATION)
