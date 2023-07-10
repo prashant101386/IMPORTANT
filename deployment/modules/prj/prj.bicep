@@ -15,7 +15,7 @@ module rg 'resource-group.bicep' = {
   }
 }
 
-module kv 'key-vault.bicep' =  if (toDelete == false) {
+module kv 'key-vault.bicep' = {
   scope: resourceGroup(rg.name)
   name: keyVault.name
   params: {
