@@ -3,7 +3,6 @@ param resourceGroupName string
 param location string
 param tags object
 param keyVault object
-param toDelete bool = false
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
