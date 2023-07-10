@@ -51,4 +51,4 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-                  -toDelete false
+                  -toDelete true

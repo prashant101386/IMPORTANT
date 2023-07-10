@@ -3,7 +3,7 @@ param resourceGroupName string
 param location string
 param tags object
 param keyVault object
-param toDelete bool = true
+param toDelete bool = false
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -15,7 +15,7 @@ module rg 'resource-group.bicep' = {
   }
 }
 
-module kv 'key-vault.bicep' =  if (toDelete == true) {
+module kv 'key-vault.bicep' =  if (toDelete == false) {
   scope: resourceGroup(rg.name)
   name: keyVault.name
   params: {
