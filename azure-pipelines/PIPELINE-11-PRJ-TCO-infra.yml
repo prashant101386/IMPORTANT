@@ -16,7 +16,7 @@ stages:
 ##  BUILD INFRA  ##
 ####################
 
-# Lint the Bicep file.
+# Lint the Bicep file
 - stage: buildinfra
   displayName: 'Build Environment'
   jobs: 
