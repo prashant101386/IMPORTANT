@@ -11,7 +11,7 @@ pool:
   vmImage: $(VM_VERSION)
 
 stages:
-
+condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Destroy DEV Environment
 - stage: destroyinfra_dev
   displayName: 'Delete DEV Environment'

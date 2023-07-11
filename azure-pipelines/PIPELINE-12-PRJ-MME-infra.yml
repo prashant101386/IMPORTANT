@@ -29,7 +29,7 @@ stages:
 ####################
 ##  DEPLOY INFRA  ##
 ####################
-
+condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Deploy DEV Environment
 - stage: deployinfra_dev
   displayName: 'Deploy DEV Environment'

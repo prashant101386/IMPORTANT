@@ -27,7 +27,7 @@ stages:
 ####################
 ##  DEPLOY INFRA  ##
 ####################
-and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Deploy DEV Environment
 - stage: deployinfra_dev
   displayName: 'Deploy DEV Environment'
@@ -44,7 +44,7 @@ and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
       project: 'TCO'
-and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Deploy QA Environment
 - stage: deployinfra_qa
   displayName: 'Deploy QA Environment'
