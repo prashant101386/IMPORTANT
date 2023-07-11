@@ -27,11 +27,12 @@ stages:
 ####################
 ##  DEPLOY INFRA  ##
 ####################
-condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+
 # Deploy DEV Environment
 - stage: deployinfra_dev
   displayName: 'Deploy DEV Environment'
   dependsOn: buildinfra
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   variables:
   - template: ../configurations/prjRca/configuration-infra-DEV.variables.yml
   jobs:
@@ -48,6 +49,7 @@ condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Deploy QA Environment
 - stage: deployinfra_QA
   displayName: 'Deploy QA Environment'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   variables:
   - template: ../configurations/prjRca/configuration-infra-QA.variables.yml
   jobs:
@@ -64,6 +66,7 @@ condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # Deploy PROD Environment
 - stage: deployinfra_PROD
   displayName: 'Deploy PROD Environment'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   variables:
   - template: ../configurations/prjRca/configuration-infra-PROD.variables.yml
   jobs:
