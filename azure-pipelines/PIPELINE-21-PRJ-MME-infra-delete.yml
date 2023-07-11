@@ -14,6 +14,7 @@ stages:
 # Destroy DEV Environment
 - stage: destroyinfra_dev
   displayName: 'Delete DEV Environment'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   variables:
   - template: ../configurations/prjmme/configuration-infra-DEV.variables.yml
   jobs:
