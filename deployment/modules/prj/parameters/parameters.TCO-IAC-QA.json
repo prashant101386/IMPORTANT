@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "centralindia"
+        },
+        "resourceGroupName": {
+            "value": "qmw2dihtcorg01-learning"
+        },
+        "tags": {
+            "value": {}
+        },
+        "keyVault": {
+            "value": {
+                "name": "qmw2dihtcokv01-learning",
+                "location": "centralindia",
+                "sku": {
+                    "family": "A",
+                    "name": "standard"
+                },
+                "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
+                "accesspolicies": [],
+                "isRequired": true
+            }
+        }
+    }
+}
