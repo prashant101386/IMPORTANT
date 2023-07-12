@@ -25,6 +25,7 @@ module kv 'key-vault.bicep' = {
 }
 
 module sac 'storage-account-container.bicep' = {
+  scope: resourceGroup('diff')
   name: container.name
   params: {
     container: container
