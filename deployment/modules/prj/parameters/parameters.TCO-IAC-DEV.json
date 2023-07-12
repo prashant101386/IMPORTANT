@@ -23,6 +23,11 @@
                 "accesspolicies": [],
                 "isRequired": true
             }
+        },
+        "container": {
+            "value": {
+                "name": "tco"
+            }
         }
     }
 }

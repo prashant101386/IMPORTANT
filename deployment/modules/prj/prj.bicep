@@ -3,6 +3,7 @@ param resourceGroupName string
 param location string
 param tags object
 param keyVault object
+param container object
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -20,5 +21,12 @@ module kv 'key-vault.bicep' = {
   params: {
     keyVault: keyVault
     tags: tags
+  }
+}
+
+module sac 'storage-account-container.bicep' = {
+  name: container.name
+  params: {
+    container: container
   }
 }
