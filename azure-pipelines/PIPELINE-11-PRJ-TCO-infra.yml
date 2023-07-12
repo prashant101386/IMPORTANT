@@ -1,4 +1,4 @@
-# Pipeline that deploys the Databricks infrastructure 
+# Pipeline that deploys the Databricks infrastructure. 
 
 trigger:
 - none
@@ -39,23 +39,6 @@ stages:
   - template: templates/deploy-env-infra.template.yml
     parameters:
       environment: TCO-IAC-DEV
-      serviceConnection: $(SERVICECONNECTION_RG)
-      resourceGroup: $(RESOURCE_GROUP)
-      location: $(LOCATION)
-      subscription: $(SUBSCRIPTIONID)
-      module: 'prj'
-      project: 'TCO'
-
-# Deploy QA Environment
-- stage: deployinfra_qa
-  displayName: 'Deploy QA Environment'
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-  variables:
-  - template: ../configurations/prjtco/configuration-infra-QA.variables.yml
-  jobs:
-  - template: templates/deploy-env-infra.template.yml
-    parameters:
-      environment: TCO-IAC-QA
       serviceConnection: $(SERVICECONNECTION_RG)
       resourceGroup: $(RESOURCE_GROUP)
       location: $(LOCATION)
