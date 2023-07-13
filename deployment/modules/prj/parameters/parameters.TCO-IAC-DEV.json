@@ -27,7 +27,7 @@
         "container": {
             "value": {
                 "name": "tco",
-                "isRequired": true
+                "isRequired": false
             }
         }
     }
