@@ -50,7 +50,7 @@ module adb 'dataBricks.bicep' = {
 
 module compute 'cluster.bicep' = {
   scope: resourceGroup('diff')
-  name: 'create container'
+  name: 'createcontainer'
   params: {
     cluster: cluster
   }
