@@ -4,6 +4,11 @@ param location string
 param tags object
 param keyVault object
 param container object
+param dataBricks object
+
+var managedResourceGroupName = dataBricks.managedResourceGroupName
+var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
+var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}'
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -29,5 +34,14 @@ module sac 'storage-account-container.bicep' = {
   name: container.name
   params: {
     container: container
+  }
+}
+
+module adb 'databricks.bicep' = {
+  scope: resourceGroup('diff')
+  name: dataBricks.name
+  params: {
+    dataBricks: dataBricks
+    managedResourceGroupId: managedResourceGroupId
   }
 }

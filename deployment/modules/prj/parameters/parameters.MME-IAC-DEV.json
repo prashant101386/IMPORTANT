@@ -23,6 +23,19 @@
                 "accesspolicies": [],
                 "isRequired": true
             }
+        },
+        "container": {
+            "value": {
+                "name": "tco",
+                "isRequired": false
+            }
+        },
+        "dataBricks": {
+            "value": {
+                "name": "learningadb101386",
+                "managedResourceGroupName": "learningmrg101386",
+                "pricingTier": "standard"
+            }
         }
     }
 }
