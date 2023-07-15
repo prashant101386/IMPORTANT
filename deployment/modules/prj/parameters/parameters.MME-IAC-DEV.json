@@ -33,6 +33,7 @@
         "dataBricks": {
             "value": {
                 "name": "learningadb101386",
+                "location": "centralindia",
                 "managedResourceGroupName": "learningmrg101386",
                 "pricingTier": "standard"
             }
