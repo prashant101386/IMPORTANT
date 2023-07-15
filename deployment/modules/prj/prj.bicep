@@ -37,7 +37,7 @@ module sac 'storage-account-container.bicep' = {
   }
 }
 
-module adb 'databricks.bicep' = {
+module adb 'dataBricks.bicep' = {
   scope: resourceGroup('diff')
   name: dataBricks.name
   params: {
