@@ -5,6 +5,7 @@ param tags object
 param keyVault object
 param container object
 param dataBricks object
+param cluster object
 
 var managedResourceGroupName = dataBricks.managedResourceGroupName
 var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
@@ -43,5 +44,13 @@ module adb 'dataBricks.bicep' = {
   params: {
     dataBricks: dataBricks
     managedResourceGroupId: managedResourceGroupId
+  }
+}
+
+module compute 'cluster.bicep' = {
+  scope: resourceGroup('diff')
+  name: 'create container'
+  params: {
+    cluster: cluster
   }
 }
