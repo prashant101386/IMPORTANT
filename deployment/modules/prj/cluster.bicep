@@ -7,6 +7,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
+    /*
     scriptContent: '''
     $baseUrl = "https://adb-7867051500982459.19.azuredatabricks.net/api/2.0"
 $patToken = "Bearer dapi9116d8c1b908128ce49de862b7da63e3"
@@ -66,6 +67,8 @@ $response = Invoke-RestMethod -Uri $uri -Headers $headers -Method Post -Body $js
 Write-Output $response
 
     '''
+    */
+    primaryScriptUri: 'https://github.com/prashant101386/IMPORTANT/blob/main/deployment/modules/prj/cluster.ps1'
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'
