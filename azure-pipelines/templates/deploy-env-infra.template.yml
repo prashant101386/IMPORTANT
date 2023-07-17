@@ -13,7 +13,7 @@ parameters:
     type: string
   - name: project
     type: string
-  - name: patToken
+  - name: PAT
     type: string
 
 jobs:

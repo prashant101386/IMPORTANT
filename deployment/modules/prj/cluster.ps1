@@ -1,7 +1,7 @@
 param([string] $token)
 
 $baseUrl = "https://adb-4656259455953667.7.azuredatabricks.net/api/2.0"
-$patToken = "Bearer ${token}" 
+$patToken = "${token}" 
 
 $headers = @{
     "Authorization" = $patToken
