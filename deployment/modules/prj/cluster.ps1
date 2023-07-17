@@ -1,5 +1,3 @@
-param ($dbPat)
-
 $baseUrl = "https://adb-4656259455953667.7.azuredatabricks.net/api/2.0"
 $patToken = ${env:PAT}
 
