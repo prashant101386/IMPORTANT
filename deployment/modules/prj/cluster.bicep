@@ -1,5 +1,4 @@
 param cluster object
-@secure()
 param patToken string
 
 

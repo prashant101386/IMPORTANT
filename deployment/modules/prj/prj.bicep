@@ -6,7 +6,6 @@ param keyVault object
 param container object
 //param dataBricks object
 param cluster object
-@secure()
 param patToken string = ''
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
