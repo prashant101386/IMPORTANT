@@ -37,7 +37,7 @@ module sac 'storage-account-container.bicep' = {
     container: container
   }
 }
-/*
+
 module adb 'dataBricks.bicep' = {
   scope: resourceGroup('diff')
   name: dataBricks.name
@@ -46,8 +46,8 @@ module adb 'dataBricks.bicep' = {
     managedResourceGroupId: managedResourceGroupId
   }
 }
-*/
 
+/*
 module compute 'cluster.bicep' = {
   scope: resourceGroup('diff')
   name: 'createcontainer'
@@ -55,3 +55,4 @@ module compute 'cluster.bicep' = {
     cluster: cluster
   }
 }
+*/
