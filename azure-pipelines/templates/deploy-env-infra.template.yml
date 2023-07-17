@@ -39,7 +39,7 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-                  -patToken ${{parameter.PAT}}
+                  -patToken ${{parameters.PAT}}
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
