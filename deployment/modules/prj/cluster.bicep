@@ -72,7 +72,7 @@ Write-Output $response
     '''
     */
     primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/main/deployment/modules/prj/cluster.ps1'
-    arguments: 'token ${patToken}'
+    arguments: '-token ${patToken}'
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'

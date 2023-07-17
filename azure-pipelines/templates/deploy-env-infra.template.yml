@@ -13,6 +13,8 @@ parameters:
     type: string
   - name: project
     type: string
+  - name: patToken
+    type: string
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment

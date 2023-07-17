@@ -46,3 +46,4 @@ stages:
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
       project: 'TCO'
+      patToken: $(PAT)
