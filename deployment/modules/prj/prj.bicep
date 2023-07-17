@@ -7,7 +7,7 @@ param container object
 //param dataBricks object
 param cluster object
 @secure()
-param patToken string
+param patToken string = ''
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
 //var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
