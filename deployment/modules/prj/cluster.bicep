@@ -68,7 +68,7 @@ Write-Output $response
 
     '''
     */
-    primaryScriptUri: 'https://github.com/prashant101386/IMPORTANT/blob/main/deployment/modules/prj/cluster.ps1'
+    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/main/deployment/modules/prj/cluster.ps1'
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'
