@@ -6,10 +6,12 @@ param keyVault object
 param container object
 //param dataBricks object
 param cluster object
+@secure()
+param patToken string
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
 //var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
-//var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}'
+//var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -53,6 +55,7 @@ module compute 'cluster.bicep' = {
   name: 'createcluster'
   params: {
     cluster: cluster
+    patToken: patToken
   }
 }
 
