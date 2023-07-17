@@ -1,5 +1,5 @@
 $baseUrl = "https://adb-4656259455953667.7.azuredatabricks.net/api/2.0"
-$patToken = "Bearer dapib8de9421c17943bc3f26a219c7ccb443"
+$patToken = $env:PAT
 
 $headers = @{
     "Authorization" = $patToken
