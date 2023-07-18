@@ -9,7 +9,7 @@ $headers = @{
 }
 
 $clusterConfig = @{
-    "num_workers" = 2
+    "num_workers" = 0
     "node_type_id" = "Standard_DS3_v2"
     "spark_version" = "7.3.x-scala2.12"
     "spark_conf" = @{
