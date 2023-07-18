@@ -29,6 +29,11 @@
                 "name": "tco",
                 "isRequired": false
             }
+        },
+        "cluster": {
+            "value": {
+                "location": "centralindia"
+            }
         }
     }
 }
