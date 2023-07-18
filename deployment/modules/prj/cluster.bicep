@@ -71,7 +71,7 @@ Write-Output $response
 
     '''
     */
-    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/Feature/Prashant/15-use-keyvault/deployment/modules/prj/cluster.bicep'
+    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/Feature/Prashant/15-use-keyvault/deployment/modules/prj/cluster.ps1'
     arguments: '-token ${patToken}'
     environmentVariables: [
         {
