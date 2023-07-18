@@ -1,7 +1,7 @@
 param cluster object
 @secure()
 param patToken string
-
+param dbInstance object
 
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'runPowerShellInline'
@@ -73,6 +73,12 @@ Write-Output $response
     */
     primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/main/deployment/modules/prj/cluster.ps1'
     arguments: '-token ${patToken}'
+    environmentVariables: [
+        {
+            name: 'URL'
+            value: dbInstance.url
+        }
+    ]
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'

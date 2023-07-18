@@ -6,6 +6,7 @@ param keyVault object
 param container object
 //param dataBricks object
 param cluster object
+param dbInstance object
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
 //var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
@@ -56,7 +57,8 @@ module compute 'cluster.bicep' = {
   name: 'createcluster'
   params: {
     cluster: cluster
-    patToken: keyVault1.getSecret('pat')
+    patToken: keyVault1.getSecret('pat1')
+    dbInstance: dbInstance
   }
 }
 

@@ -34,6 +34,11 @@
             "value": {
                 "location": "centralindia"
             }
+        },
+        "dbInstance": {
+            "value": {
+                "url": "adb-1867545843757265.5.azuredatabricks.net/api/2.0"
+            }
         }
     }
 }
