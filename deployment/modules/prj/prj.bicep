@@ -4,12 +4,12 @@ param location string
 param tags object
 param keyVault object
 param container object
-param dataBricks object
-//param cluster object
+//param dataBricks object
+param cluster object
 
-var managedResourceGroupName = dataBricks.managedResourceGroupName
-var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
-var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}'
+//var managedResourceGroupName = dataBricks.managedResourceGroupName
+//var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
+//var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}'
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -37,7 +37,7 @@ module sac 'storage-account-container.bicep' = {
     container: container
   }
 }
-
+/*
 module adb 'dataBricks.bicep' = {
   scope: resourceGroup('diff')
   name: dataBricks.name
@@ -46,7 +46,7 @@ module adb 'dataBricks.bicep' = {
     managedResourceGroupId: managedResourceGroupId
   }
 }
-/*
+*/
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: 'dmw2dihtcokv01-learning'
 }
@@ -59,4 +59,4 @@ module compute 'cluster.bicep' = {
     patToken: keyVault1.getSecret('pat')
   }
 }
-*/
+
