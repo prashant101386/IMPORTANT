@@ -5,7 +5,7 @@ param tags object
 param keyVault object
 param container object
 param dataBricks object
-param cluster object
+//param cluster object
 
 var managedResourceGroupName = dataBricks.managedResourceGroupName
 var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
