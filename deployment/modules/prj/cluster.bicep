@@ -78,6 +78,15 @@ Write-Output $response
             name: 'URL'
             value: dbInstance.url
         }
+        {
+
+            name: 'numofworker'
+            value: dbInstance.num
+        }
+        {
+            name: 'nodetype'
+            value: dbInstance.nodetype
+        }
     ]
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
