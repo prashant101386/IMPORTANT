@@ -37,7 +37,9 @@
         },
         "dbInstance": {
             "value": {
-                "url": "https://adb-1867545843757265.5.azuredatabricks.net/api/2.0"
+                "url": "https://adb-1867545843757265.5.azuredatabricks.net/api/2.0",
+                "num": 0,
+                "nodeType": "Standard_DS3_v2"
             }
         }
     }
