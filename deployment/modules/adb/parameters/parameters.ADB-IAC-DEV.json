@@ -15,7 +15,7 @@
             "value": {
                 "name": "dmw2dihadbsa01learning",
                 "location": "centralindia",
-                "sku":"Standard-LRS"
+                "sku":"Standard_LRS"
             }
         },
         "networkSecurityGroup":{
