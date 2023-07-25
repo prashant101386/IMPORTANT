@@ -9,7 +9,7 @@ $tokenLifetimeSeconds = 2592000
 # Create the JSON payload
 $jsonPayload = @{
     'lifetime_seconds' = $tokenLifetimeSeconds
-    'comment' = "Azure PowerShell created token"
+    'comment' = "Azure PowerShell manual token"
 }
 
 # Convert the JSON payload to a string
@@ -24,7 +24,5 @@ $headers = @{
 $createTokenUrl = "$workspaceBaseUrl/api/2.0/token/create"
 $response = Invoke-RestMethod -Uri $createTokenUrl -Headers $headers -Method Post -Body $jsonString
 
-# The generated token is in the 'token_value' property of the response
-$generatedToken = $response.token_value
-
-Write-Output "Generated Token: $generatedToken"
+$DeploymentScriptOutputs = @{}
+$DeploymentScriptOutputs['autotoken'] = $response.token_value
