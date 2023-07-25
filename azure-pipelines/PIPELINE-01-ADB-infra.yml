@@ -44,36 +44,3 @@ stages:
       subscription: $(SUBSCRIPTIONID)
       module: 'adb'
       project: 'ADB'
-
-
-# Deploy QA Environment
-- stage: deployinfra_QA
-  displayName: 'Deploy QA Environment'
-  variables:
-  - template: ../configurations/adb/configuration-infra-QA.variables.yml
-  jobs:
-  - template: templates/deploy-env-infra.template.yml
-    parameters:
-      environment: ADB-IAC-QA
-      serviceConnection: $(SERVICECONNECTION_RG)
-      resourceGroup: $(RESOURCE_GROUP)
-      location: $(LOCATION)
-      subscription: $(SUBSCRIPTIONID)
-      module: 'adb'
-      project: 'ADB'
-
-# Deploy PROD Environment
-- stage: deployinfra_PROD
-  displayName: 'Deploy PROD Environment'
-  variables:
-  - template: ../configurations/adb/configuration-infra-PROD.variables.yml
-  jobs:
-  - template: templates/deploy-env-infra.template.yml
-    parameters:
-      environment: ADB-IAC-PROD
-      serviceConnection: $(SERVICECONNECTION_RG)
-      resourceGroup: $(RESOURCE_GROUP)
-      location: $(LOCATION)
-      subscription: $(SUBSCRIPTIONID)
-      module: 'adb'
-      project: 'ADB'
