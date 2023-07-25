@@ -11,7 +11,7 @@ resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = if (keyVault.isRequired == 
     accessPolicies: keyVault.accessPolicies
     enabledForDeployment: false
     enabledForDiskEncryption: false
-    enabledForTemplateDeployment: false
+    enabledForTemplateDeployment: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 90
     enableRbacAuthorization: false
