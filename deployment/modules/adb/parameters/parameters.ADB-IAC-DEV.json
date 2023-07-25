@@ -56,7 +56,26 @@
                     "name": "standard"
                 },
                 "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
-                "accesspolicies": [],
+                "accesspolicies": [
+                    {
+                        "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
+                        "objectId": "45cf2157-a31a-4327-b390-237b59924323",
+                        "permissions": {
+                            "keys": [
+                                "Get",
+                                "List"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List"
+                            ]
+                        }
+                    }
+                ],
                 "isRequired": true
             }
         }
