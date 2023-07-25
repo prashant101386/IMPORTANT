@@ -13,7 +13,7 @@
         },
         "storageAccount": {
             "value": {
-                "name": "dmw2dihadbsa01-learning",
+                "name": "dmw2dihadbsa01learning",
                 "location": "centralindia",
                 "sku":"Standard_GRS"
             }
