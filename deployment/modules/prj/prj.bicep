@@ -32,7 +32,7 @@ module kv 'key-vault.bicep' = {
 }
 
 module sac 'storage-account-container.bicep' = {
-  scope: resourceGroup('diff')
+  scope: resourceGroup('dmw2dihadbrg01-learning')
   name: container.name
   params: {
     container: container
@@ -49,15 +49,16 @@ module adb 'dataBricks.bicep' = {
 }
 */
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
-  name: 'dmw2dihtcokv01-learning'
+  scope: resourceGroup('dmw2dihadbrg01-learning')
+  name: 'dmw2dihadbkv01-learning'
 }
 
 module compute 'cluster.bicep' = {
-  scope: resourceGroup('diff')
+  scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createcluster'
   params: {
     cluster: cluster
-    patToken: keyVault1.getSecret('pat1')
+    patToken: keyVault1.getSecret('adminpat')
     dbInstance: dbInstance
   }
 }
