@@ -9,7 +9,7 @@ $tokenLifetimeSeconds = 2592000
 # Create the JSON payload
 $jsonPayload = @{
     'lifetime_seconds' = $tokenLifetimeSeconds
-    'comment' = "Azure PowerShell manual token"
+    'comment' = "Azure PowerShell automatic token"
 }
 
 # Convert the JSON payload to a string
