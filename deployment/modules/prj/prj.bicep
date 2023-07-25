@@ -57,7 +57,7 @@ module compute 'cluster.bicep' = {
   name: 'createcluster'
   params: {
     cluster: cluster
-    patToken: keyVault1.getSecret('pat1')
+    patToken: keyVault1.getSecret('pat')
     dbInstance: dbInstance
   }
 }
