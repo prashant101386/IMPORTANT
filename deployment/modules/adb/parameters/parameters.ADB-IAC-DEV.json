@@ -20,7 +20,7 @@
         },
         "networkSecurityGroup":{
             "value": {
-                "enabled": true,
+                "enabled": false,
                 "name": "dmw2dihadbnsg01-learning",
                 "location": "centralindia"
             }
@@ -40,7 +40,7 @@
         },
         "routeTable": {
             "value": {
-                "enabled": true,
+                "enabled": false,
                 "name": "dmw2dihadbrt01-learning",
                 "location": "centralindia",
                 "disableBgpRoutePropagation": true,
