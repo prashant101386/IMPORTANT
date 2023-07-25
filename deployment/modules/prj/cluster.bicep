@@ -4,7 +4,7 @@ param patToken string
 param dbInstance object
 
 resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  name: 'create pat'
+  name: 'createpat'
   location: cluster.location
   kind: 'AzurePowerShell'
 
@@ -17,7 +17,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 }
 
 resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  name: 'create compute'
+  name: 'createcompute'
   location: cluster.location
   kind: 'AzurePowerShell'
 
