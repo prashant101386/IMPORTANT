@@ -32,6 +32,7 @@ stages:
 - stage: deployinfra_dev
   displayName: 'Deploy DEV Environment'
   dependsOn: buildinfra
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   variables:
   - template: ../configurations/adb/configuration-infra-DEV.variables.yml
   jobs:
