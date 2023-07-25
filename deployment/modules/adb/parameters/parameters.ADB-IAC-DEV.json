@@ -63,15 +63,18 @@
                         "permissions": {
                             "keys": [
                                 "Get",
-                                "List"
+                                "List",
+                                "Set"
                             ],
                             "secrets": [
                                 "Get",
-                                "List"
+                                "List",
+                                "Set"
                             ],
                             "certificates": [
                                 "Get",
-                                "List"
+                                "List",
+                                "Set"
                             ]
                         }
                     }
