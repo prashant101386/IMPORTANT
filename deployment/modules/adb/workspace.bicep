@@ -11,19 +11,5 @@ resource workspace 'Microsoft.Databricks/workspaces@2023-02-01' = {
   }
   properties: {
     managedResourceGroupId: managedResourceGroupId
-    parameters: {
-      customVirtualNetworkId: {
-        value: databrick.vnetId
-      }
-      customPublicSubnetName: {
-        value: databrick.publicSubnetName
-      }
-      customPrivateSubnetName: {
-        value: databrick.privateSubnetName
-      }
-      enableNoPublicIp: {
-        value: databrick.disablePublicIp
-      }
-    }
   }
 }
