@@ -39,7 +39,10 @@
             "value": {
                 "url": "https://adb-1867545843757265.5.azuredatabricks.net/api/2.0",
                 "num": 0,
-                "nodeType": "Standard_DS3_v2"
+                "nodeType": "Standard_DS3_v2",
+                "sparkversion": "7.3.x-scala2.12",
+                "executormemory": "4g",
+                "drivermemory": "4g"
             }
         }
     }

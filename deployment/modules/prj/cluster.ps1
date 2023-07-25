@@ -4,6 +4,9 @@ $baseUrl = "${Env:URL}"
 $numworker = "${Env:numofworker}"
 $type = "${Env:nodetype}"
 $patToken = "${token}" 
+$sparkversion = "${Env:sparkversion}"
+$executormemory = "${Env:executormemory}"
+$drivermemory = "${Env:drivermemory}"
 
 $headers = @{
     "Authorization" = "Bearer $patToken"
@@ -13,10 +16,10 @@ $headers = @{
 $clusterConfig = @{
     "num_workers" = $numworker
     "node_type_id" = "$type"
-    "spark_version" = "7.3.x-scala2.12"
+    "spark_version" = "$sparkversion"
     "spark_conf" = @{
-        "spark.executor.memory" = "4g"
-        "spark.driver.memory" = "4g"
+        "spark.executor.memory" = "$executormemory"
+        "spark.driver.memory" = "$drivermemory"
     }
 }
 

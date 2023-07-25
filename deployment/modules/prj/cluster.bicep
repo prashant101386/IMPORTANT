@@ -87,6 +87,18 @@ Write-Output $response
             name: 'nodetype'
             value: dbInstance.nodetype
         }
+        {
+            name: 'sparkversion'
+            value: dbInstance.sparkversion
+        }
+        {
+            name: 'executormemory'
+            value: dbInstance.executormemory
+        }
+        {
+            name: 'drivermemory'
+            value: dbInstance.drivermemory
+        }
     ]
     timeout: 'PT30M'
     cleanupPreference: 'OnSuccess'
