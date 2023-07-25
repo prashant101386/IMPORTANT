@@ -37,7 +37,7 @@
         },
         "dbInstance": {
             "value": {
-                "url": "https://adb-1867545843757265.5.azuredatabricks.net/api/2.0",
+                "url": "https://adb-4892209284065921.1.azuredatabricks.net/api/2.0",
                 "num": 0,
                 "nodeType": "Standard_DS3_v2",
                 "sparkversion": "7.3.x-scala2.12",
