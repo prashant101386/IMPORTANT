@@ -53,13 +53,22 @@ resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: 'dmw2dihadbkv01-learning'
 }
 
+module pats 'pat.bicep' = {
+  scope: resourceGroup('dmw2dihadbrg01-learning')
+  name: 'createpat'
+  params: {
+    cluster: cluster
+    patToken: keyVault1.getSecret('adminpat')
+  }
+}
+
 module compute 'cluster.bicep' = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createcluster'
   params: {
     cluster: cluster
-    patToken: keyVault1.getSecret('adminpat')
     dbInstance: dbInstance
+    token: pats.outputs.pat
   }
 }
 

@@ -1,8 +1,7 @@
 param cluster object
-@secure()
-param patToken string
 param dbInstance object
-
+param token string
+/*
 resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'createpat'
   location: cluster.location
@@ -15,7 +14,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
     retentionInterval: 'P1D'
   }
 }
-
+*/
 resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'createcompute'
   location: cluster.location
@@ -24,7 +23,7 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
     primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/Feature/Prashant/15-use-keyvault/deployment/modules/prj/cluster.ps1'
-    arguments: '-token ${createpat.properties.outputs.autotoken}'
+    arguments: '-token ${token}'
     environmentVariables: [
         {
             name: 'URL'
