@@ -7,6 +7,7 @@ param container object
 //param dataBricks object
 param cluster object
 param dbInstance object
+param storageAccount object
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
 //var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
@@ -36,6 +37,7 @@ module sac 'storage-account-container.bicep' = {
   name: container.name
   params: {
     container: container
+    storageAccount: storageAccount
   }
 }
 /*
