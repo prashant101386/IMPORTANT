@@ -1,5 +1,6 @@
 param cluster object
 param dbInstance object
+@secure()
 param token string
 /*
 resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
