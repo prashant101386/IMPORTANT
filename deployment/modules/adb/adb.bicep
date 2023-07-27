@@ -6,6 +6,7 @@ param storageAccount object
 param networkSecurityGroup object
 param databrick object
 param routeTable object
+param keyVault object
 
 var managedResourceGroupName = databrick.managedResourceGroupName
 var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
@@ -54,6 +55,15 @@ module ws './workspace.bicep' = if (databrick.enabled) {
   params: {
     databrick: databrick
     managedResourceGroupId: managedResourceGroupId
+    tags: tags
+  }
+}
+
+module kv 'key-vault.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: keyVault.name
+  params: {
+    keyVault: keyVault
     tags: tags
   }
 }

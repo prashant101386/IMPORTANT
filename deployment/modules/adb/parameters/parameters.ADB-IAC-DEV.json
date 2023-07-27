@@ -13,14 +13,14 @@
         },
         "storageAccount": {
             "value": {
-                "name": "dmw2dihadbsa01-learning",
+                "name": "dmw2dihadbsa01learning",
                 "location": "centralindia",
-                "sku":"Standard_GRS"
+                "sku":"Standard_LRS"
             }
         },
         "networkSecurityGroup":{
             "value": {
-                "enabled": true,
+                "enabled": false,
                 "name": "dmw2dihadbnsg01-learning",
                 "location": "centralindia"
             }
@@ -30,7 +30,7 @@
                 "enabled": true,
                 "name": "dmw2dihadb01-learning",
                 "location": "centralindia",
-                "pricingTier": "basic",
+                "pricingTier": "Standard",
                 "vnetId": "/subscriptions/fe62782e-1d26-4c26-a97f-59d2827d521b/resourceGroups/dmw2dihrego01-hA3ZsA5Z/providers/Microsoft.Network/virtualNetworks/dmw2dihvnto01-hA3ZsA5Z",
                 "managedResourceGroupName": "dmw2dihadbrg02-learning",
                 "publicSubnetName": "dmw2dihsnno02-adb-pub",
@@ -40,11 +40,63 @@
         },
         "routeTable": {
             "value": {
-                "enabled": true,
+                "enabled": false,
                 "name": "dmw2dihadbrt01-learning",
                 "location": "centralindia",
                 "disableBgpRoutePropagation": true,
                 "routes": []
+            }
+        },
+        "keyVault": {
+            "value": {
+                "name": "dmw2dihadbkv01-learning",
+                "location": "centralindia",
+                "sku": {
+                    "family": "A",
+                    "name": "standard"
+                },
+                "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
+                "accesspolicies": [
+                    {
+                        "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
+                        "objectId": "45cf2157-a31a-4327-b390-237b59924323",
+                        "permissions": {
+                            "keys": [
+                                "Get",
+                                "List"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List"
+                            ]
+                        }
+                    },
+                    {
+                        "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
+                        "objectId": "be5d28a3-3466-4289-888b-989dcb502e0e",
+                        "permissions": {
+                            "keys": [
+                                "Get",
+                                "List"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List"
+                            ]
+                        }
+                    }
+                ],
+                "isRequired": true
             }
         }
     }
