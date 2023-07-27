@@ -55,7 +55,7 @@ resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: 'dmw2dihadbkv01-learning'
 }
 
-module pats 'pat.bicep' = {
+module pats 'pat.bicep' = if (cluster.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createpat'
   params: {
@@ -64,7 +64,7 @@ module pats 'pat.bicep' = {
   }
 }
 
-module compute 'cluster.bicep' = {
+module compute 'cluster.bicep' = if (cluster.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createcluster'
   params: {
