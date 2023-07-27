@@ -24,6 +24,11 @@
                 "isRequired": false
             }
         },
+        "storageAccount": {
+            "value": {
+                "name": "dmw2dihadbsa01learning"
+            }
+        },
         "container": {
             "value": {
                 "name": "tco",

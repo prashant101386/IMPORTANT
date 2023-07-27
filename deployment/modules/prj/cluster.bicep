@@ -52,7 +52,7 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
         }
     ]
     timeout: 'PT30M'
-    cleanupPreference: 'OnSuccess'
-    retentionInterval: 'P1D'
+    cleanupPreference: 'OnExpiration'
+    retentionInterval: 'PT1H'
   }
 }
