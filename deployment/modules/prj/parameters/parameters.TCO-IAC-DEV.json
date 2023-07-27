@@ -27,7 +27,7 @@
         "container": {
             "value": {
                 "name": "tco",
-                "isRequired": false
+                "isRequired": true
             }
         },
         "cluster": {
