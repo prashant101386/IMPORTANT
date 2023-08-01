@@ -22,7 +22,7 @@ module rg 'resource-group.bicep' = {
   }
 }
 
-module kv 'key-vault.bicep' = {
+module kv 'key-vault.bicep' = if (keyVault.enabled) {
   scope: resourceGroup(rg.name)
   name: keyVault.name
   params: {
@@ -49,7 +49,7 @@ module adb 'dataBricks.bicep' = {
 }
 */
 
-module compute 'cluster.bicep' = {
+module compute 'cluster.bicep' = if (cluster.enabled) {
   scope: resourceGroup('diff')
   name: 'createcluster'
   params: {
