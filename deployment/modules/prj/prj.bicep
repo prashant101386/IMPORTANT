@@ -64,7 +64,7 @@ module pats 'pat.bicep' = if (cluster.enabled) {
   }
 }
 
-module compute 'cluster.bicep' = {
+module compute 'cluster.bicep' = if (cluster.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createcluster'
   params: {
