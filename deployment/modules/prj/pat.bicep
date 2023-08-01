@@ -9,7 +9,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (clus
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/Feature/Prashant/15-use-keyvault/deployment/modules/prj/pat.ps1'
+    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/main/deployment/modules/prj/pat.ps1'
     arguments: '-token ${patToken}'
     cleanupPreference: 'OnExpiration'
     retentionInterval: 'PT1H'
