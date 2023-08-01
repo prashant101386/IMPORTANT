@@ -49,7 +49,7 @@ module adb 'dataBricks.bicep' = {
     managedResourceGroupId: managedResourceGroupId
   }
 }
-*/
+
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'dmw2dihadbkv01-learning'
@@ -74,3 +74,4 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
   }
 }
 
+*/
