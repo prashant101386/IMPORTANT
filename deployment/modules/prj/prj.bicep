@@ -23,7 +23,7 @@ module rg 'resource-group.bicep' = {
   }
 }
 
-module kv 'key-vault.bicep' = if (keyVault.enabled) {
+module kv 'key-vault.bicep' = {
   scope: resourceGroup(rg.name)
   name: keyVault.name
   params: {
@@ -55,10 +55,6 @@ resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: 'dmw2dihadbkv01-learning'
 }
 
-<<<<<<< HEAD
-module compute 'cluster.bicep' = if (cluster.enabled) {
-  scope: resourceGroup('diff')
-=======
 module pats 'pat.bicep' = if (cluster.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createpat'
@@ -68,9 +64,8 @@ module pats 'pat.bicep' = if (cluster.enabled) {
   }
 }
 
-module compute 'cluster.bicep' = if (cluster.enabled) {
+module compute 'cluster.bicep' = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
->>>>>>> 45bc77a4d6a640fe5aa87b09fa07c6fb93a32e7b
   name: 'createcluster'
   params: {
     cluster: cluster
