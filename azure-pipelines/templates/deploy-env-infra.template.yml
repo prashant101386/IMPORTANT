@@ -13,8 +13,6 @@ parameters:
     type: string
   - name: project
     type: string
-  - name: PAT
-    type: string
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment
@@ -39,7 +37,6 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-                  -patToken ${{parameters.PAT}}
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
@@ -53,4 +50,3 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-                  -patToken ${{parameters.PAT}}

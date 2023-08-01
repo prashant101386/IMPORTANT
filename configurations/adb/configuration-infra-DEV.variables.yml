@@ -1,5 +1,6 @@
 variables:
   # DEV Environment
+  ENVIRONMENT: ADB-IAC-DEV
   RESOURCE_GROUP: dmw2dihadbrg01-learning
   LOCATION: centralindia
   SERVICECONNECTION_RG: learningpipelines
