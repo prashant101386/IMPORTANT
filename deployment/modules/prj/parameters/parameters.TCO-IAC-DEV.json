@@ -51,6 +51,14 @@
                 "name": "tco",
                 "isRequired": true
             }
+        },
+        "acl": {
+            "value": {
+                "location": "centralindia",
+                "name": "dmw2dihadbsa01learning",
+                "fs": "tco",
+                "user": "45cf2157-a31a-4327-b390-237b59924323"
+            }
         }
     }
 }

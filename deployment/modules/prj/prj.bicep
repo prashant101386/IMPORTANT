@@ -7,7 +7,7 @@ param container object
 param cluster object
 param dbInstance object
 param storageAccount object
-//param acl object
+param acl object
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -36,8 +36,8 @@ module sac 'storage-account-container.bicep' = if (container.enabled) {
     storageAccount: storageAccount
   }
 }
-/*
-resource keyVault2 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+
+resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'dmw2dihadbkv01-learning'
 }
@@ -47,14 +47,8 @@ module acls 'container-acl.bicep' = {
   name: 'createacl'
   params: {
     acl:acl
-    key: keyVault2.getSecret('NEWSaKey')
+    key: keyVault1.getSecret('NEWSaKey')
   }
-}
-*/
-
-resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = if (cluster.enabled) {
-  scope: resourceGroup('dmw2dihadbrg01-learning')
-  name: 'dmw2dihadbkv01-learning'
 }
 
 module pats 'pat.bicep' = if (cluster.enabled) {
