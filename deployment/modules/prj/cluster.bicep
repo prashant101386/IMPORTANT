@@ -16,7 +16,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   }
 }
 */
-resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
   name: 'createcompute'
   location: cluster.location
   kind: 'AzurePowerShell'

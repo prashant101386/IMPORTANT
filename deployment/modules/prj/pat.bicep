@@ -2,7 +2,7 @@ param cluster object
 @secure()
 param patToken string
 
-resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
   name: 'createpat'
   location: cluster.location
   kind: 'AzurePowerShell'
