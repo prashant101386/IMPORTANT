@@ -28,7 +28,7 @@ module kv 'key-vault.bicep' = {
   }
 }
 
-module sac 'storage-account-container.bicep' = {
+module sac 'storage-account-container.bicep' = if (container.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: container.name
   params: {
@@ -52,7 +52,7 @@ module acls 'container-acl.bicep' = {
 }
 */
 
-resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = if (cluster.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'dmw2dihadbkv01-learning'
 }
