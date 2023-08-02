@@ -47,7 +47,6 @@ module acls 'container-acl.bicep' = {
   name: 'createacl'
   params: {
     acl:acl
-    //key: 'mJyLQYvbmR4W6VpfBpp7slvK6NAj4aO0b8YmnXmfP9od6nQO1Pk6+xgtQUe6V3V1DJKsNPER99Ko+AStM1vsug==' 
     key: keyVault1.getSecret('NEWSaKey')
   }
 }
