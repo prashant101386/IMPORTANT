@@ -5,9 +5,10 @@ param tags object
 param keyVault object
 param container object
 //param dataBricks object
-param cluster object
-param dbInstance object
+//param cluster object
+//param dbInstance object
 param storageAccount object
+param acl object
 
 //var managedResourceGroupName = dataBricks.managedResourceGroupName
 //var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
@@ -38,6 +39,20 @@ module sac 'storage-account-container.bicep' = {
   params: {
     container: container
     storageAccount: storageAccount
+  }
+}
+
+resource keyVault2 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+  scope: resourceGroup('dmw2dihadbrg01-learning')
+  name: 'dmw2dihadbkv01-learning'
+}
+
+module acls 'container-acl.bicep' = {
+  scope: resourceGroup('dmw2dihadbrg01-learning')
+  name: 'createacl'
+  params: {
+    acl:acl
+    key: keyVault2.getSecret('StorageAccountKey')
   }
 }
 /*
@@ -75,3 +90,5 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
 }
 
 */
+
+
