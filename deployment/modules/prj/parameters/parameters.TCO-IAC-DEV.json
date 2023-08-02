@@ -47,6 +47,7 @@
         },
         "container": {
             "value": {
+                "enabled": false,
                 "name": "tco",
                 "isRequired": true
             }
