@@ -16,4 +16,4 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (clus
   }
 }
 
-output pat string = '${createpat.properties.outputs.autotoken}'
+output pat string = (cluster.enabled) ? '${createpat.properties.outputs.autotoken}':''
