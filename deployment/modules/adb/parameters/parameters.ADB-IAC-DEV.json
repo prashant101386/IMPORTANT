@@ -27,7 +27,7 @@
         },
         "databrick": {
             "value": {
-                "enabled": false,
+                "enabled": true,
                 "name": "dmw2dihadb01-learning",
                 "location": "centralindia",
                 "pricingTier": "Standard",
