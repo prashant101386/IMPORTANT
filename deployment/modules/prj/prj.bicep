@@ -4,7 +4,6 @@ param location string
 param tags object
 param keyVault object
 param container object
-param dataBricks object
 param cluster object
 param dbInstance object
 param storageAccount object
