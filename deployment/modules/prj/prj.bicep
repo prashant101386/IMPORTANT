@@ -52,7 +52,7 @@ module acls 'container-acl.bicep' = {
   name: 'createacl'
   params: {
     acl:acl
-    key: keyVault2.getSecret('SAKey')
+    key: keyVault2.getSecret('NEWSaKey')
   }
 }
 /*
