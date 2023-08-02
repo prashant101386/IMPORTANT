@@ -62,7 +62,7 @@ module pats 'pat.bicep' = {
   name: 'createpat'
   params: {
     cluster: cluster
-    patToken: keyVault1.getSecret('adminpat')
+    patToken: keyVault1.getSecret('adminpat1')
   }
 }
 
