@@ -1,5 +1,5 @@
 $storageAccountName = "${Env:saname}"
-$StorageAccountKey = "${key}"
+$StorageAccountKey = "${keys}"
 $filesystemName = "${Env:fsname}"
 $userId = "${Env:user}"
 
