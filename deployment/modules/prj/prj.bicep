@@ -4,15 +4,11 @@ param location string
 param tags object
 param keyVault object
 param container object
-//param dataBricks object
-//param cluster object
-//param dbInstance object
+param dataBricks object
+param cluster object
+param dbInstance object
 param storageAccount object
-param acl object
-
-//var managedResourceGroupName = dataBricks.managedResourceGroupName
-//var trimmedMRGName = substring(managedResourceGroupName, 0, min(length(managedResourceGroupName), 90))
-//var managedResourceGroupId = '${subscription().id}/resourceGroups/${trimmedMRGName}'
+//param acl object
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -41,7 +37,7 @@ module sac 'storage-account-container.bicep' = {
     storageAccount: storageAccount
   }
 }
-
+/*
 resource keyVault2 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'dmw2dihadbkv01-learning'
@@ -55,15 +51,7 @@ module acls 'container-acl.bicep' = {
     key: keyVault2.getSecret('NEWSaKey')
   }
 }
-/*
-module adb 'dataBricks.bicep' = {
-  scope: resourceGroup('diff')
-  name: dataBricks.name
-  params: {
-    dataBricks: dataBricks
-    managedResourceGroupId: managedResourceGroupId
-  }
-}
+*/
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
@@ -88,7 +76,5 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
     token: pats.outputs.pat
   }
 }
-
-*/
 
 
