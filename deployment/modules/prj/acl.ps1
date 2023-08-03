@@ -14,6 +14,7 @@ $usersArray = $users -split ','
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 foreach ($usr in $usersArray) {
-    $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $usr -Permission r--
+    $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName).ACL
+    $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID $usr -Permission r-x -InputObject $acl
     Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
 }
