@@ -13,6 +13,7 @@
         },
         "keyVault": {
             "value": {
+                "enabled": false,
                 "name": "dmw2dihtcokv01-learning",
                 "location": "centralindia",
                 "sku": {
@@ -20,13 +21,12 @@
                     "name": "standard"
                 },
                 "tenantId": "e02863cf-f37d-4df4-94d0-f29f1a4d6bcf",
-                "accesspolicies": [],
-                "isRequired": false
+                "accesspolicies": []
             }
         },
         "cluster": {
             "value": {
-                "enabled": false,
+                "enabled": true,
                 "location": "centralindia"
             }
         },
@@ -37,7 +37,11 @@
                 "nodeType": "Standard_DS3_v2",
                 "sparkversion": "7.3.x-scala2.12",
                 "executormemory": "4g",
-                "drivermemory": "4g"
+                "drivermemory": "4g",
+                "maxresultsize": "8g",
+                "previewenabled": true,
+                "autoterminate": 30,
+                "runtimeengine": "STANDARD"
             }
         },
         "storageAccount": {
@@ -48,8 +52,7 @@
         "container": {
             "value": {
                 "enabled": false,
-                "name": "tco",
-                "isRequired": true
+                "name": "tco"
             }
         },
         "acl": {

@@ -19,7 +19,7 @@ module rg 'resource-group.bicep' = {
   }
 }
 
-module kv 'key-vault.bicep' = {
+module kv 'key-vault.bicep' = if (keyVault.enabled) {
   scope: resourceGroup(rg.name)
   name: keyVault.name
   params: {
@@ -42,7 +42,7 @@ resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: 'dmw2dihadbkv01-learning'
 }
 
-module acls 'container-acl.bicep' = {
+module acls 'container-acl.bicep' = if (container.enabled) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'createacl'
   params: {

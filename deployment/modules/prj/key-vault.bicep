@@ -1,7 +1,7 @@
 param keyVault object
 param tags object
 
-resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = if (keyVault.isRequired == true) {
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' = {
   name: keyVault.name
   location: keyVault.location
   tags: tags

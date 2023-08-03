@@ -7,6 +7,10 @@ $patToken = "${token}"
 $sparkversion = "${Env:sparkversion}"
 $executormemory = "${Env:executormemory}"
 $drivermemory = "${Env:drivermemory}"
+$maxresultsize = "${Env:maxresultsize}"
+$previewenabled = "${Env:previewenabled}"
+$autoterminate = "${Env:autoterminate}"
+$runtimeengine = "${Env:runtimeengine}"
 
 $headers = @{
     "Authorization" = "Bearer $patToken"
@@ -20,7 +24,11 @@ $clusterConfig = @{
     "spark_conf" = @{
         "spark.executor.memory" = "$executormemory"
         "spark.driver.memory" = "$drivermemory"
+        "spark.driver.maxResultSize" = "$maxresultsize"
+        "spark.databricks.delta.preview.enabled" = "$previewenabled"
     }
+    "autotermination_minutes" = "$autoterminate"
+    "runtime_engine" = "$runtimeengine"
 }
 
 $clusterName = "learningcluster101386"
@@ -32,6 +40,8 @@ $body = @{
     "node_type_id" = $clusterConfig.node_type_id
     "num_workers" = $clusterConfig.num_workers
     "spark_conf" = $clusterConfig.spark_conf
+    "autotermination_minutes" = $clusterConfig.autotermination_minutes
+    "runtime_engine" = $clusterConfig.runtime_engine
 }
 
 $jsonBody = $body | ConvertTo-Json

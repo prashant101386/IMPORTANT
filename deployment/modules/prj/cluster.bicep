@@ -27,28 +27,44 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
     arguments: '-token ${token}'
     environmentVariables: [
         {
-            name: 'URL'
-            value: dbInstance.url
+          name: 'URL'
+          value: dbInstance.url
         }
         {
-            name: 'numofworker'
-            value: dbInstance.num
+          name: 'numofworker'
+          value: dbInstance.num
         }
         {
-            name: 'nodetype'
-            value: dbInstance.nodetype
+          name: 'nodetype'
+          value: dbInstance.nodetype
         }
         {
-            name: 'sparkversion'
-            value: dbInstance.sparkversion
+          name: 'sparkversion'
+          value: dbInstance.sparkversion
         }
         {
-            name: 'executormemory'
-            value: dbInstance.executormemory
+          name: 'executormemory'
+          value: dbInstance.executormemory
         }
         {
-            name: 'drivermemory'
-            value: dbInstance.drivermemory
+          name: 'drivermemory'
+          value: dbInstance.drivermemory
+        }
+        {
+          name: 'maxresultsize'
+          value: dbInstance.maxresultsize
+        }
+        {
+          name: 'previewenabled'
+          value: dbInstance.previewenabled
+        }
+        {
+          name: 'autoterminate'
+          value: dbInstance.autoterminate
+        }
+        {
+          name: 'runtimeengine'
+          value: dbInstance.runtimeengine
         }
     ]
     timeout: 'PT30M'
