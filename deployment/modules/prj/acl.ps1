@@ -1,7 +1,7 @@
 # Parameter for holding storage account access key passed from container-acl.bicep as argument.
 param (
     [string] $keys,
-    [string] $users
+    [string[]] $users
 )
 
 # Storage account name passed as environment variable.
@@ -12,7 +12,7 @@ $filesystemName = "${Env:fsname}"
 #$user = "${Env:users}"
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
-foreach ($usr in $users) {
+foreach ($usr in $user) {
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $usr -Permission r--
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
 $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
