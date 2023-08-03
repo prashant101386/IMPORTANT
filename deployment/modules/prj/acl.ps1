@@ -6,10 +6,11 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
-$user = "${Env:users}"
+
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 foreach ($user in $users) {
+$user = "${Env:users}"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $user -Permission r--
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
 $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
