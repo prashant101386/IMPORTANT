@@ -21,8 +21,12 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       value: acl.fs
     }
     {
-      name: 'user'
-      value: acl.user
+      name: 'user1'
+      value: acl.user1
+    }
+    {
+      name: 'user2'
+      value: acl.user2
     }
   ]
   retentionInterval: 'PT1H'
