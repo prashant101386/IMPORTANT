@@ -1,7 +1,7 @@
 # Parameter for holding storage account access key passed from container-acl.bicep as argument.
 param (
     [string] $keys,
-    [string[] $users]
+    [string] $users
 )
 
 # Storage account name passed as environment variable.
