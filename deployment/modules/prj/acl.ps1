@@ -16,6 +16,7 @@ $usersArray = $users -split ' '
 Out-File -FilePath .\output1.txt -InputObject $usersArray
 $users = $usersArray.TrimStart('[')
 $users = $users.TrimEnd(']')
+$users = $users -split ' '
 Out-File -FilePath .\output2.txt -InputObject $users
 #$user = "${Env:users}"
 $key = $keys
