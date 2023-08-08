@@ -9,8 +9,9 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
-Write-Output $users
+Out-File -FilePath .\output.txt -InputObject $users
 $usersArray = $users -split ','
+Out-File -FilePath .\output1.txt -InputObject $usersArray
 #$user = "${Env:users}"
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
