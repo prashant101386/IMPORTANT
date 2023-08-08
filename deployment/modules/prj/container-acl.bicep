@@ -25,7 +25,7 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       secureValue: key
     }
   ]
-  retentionInterval: 'PT10M'
+  retentionInterval: 'PT1H'
   cleanupPreference: 'OnExpiration'
  }
 }
