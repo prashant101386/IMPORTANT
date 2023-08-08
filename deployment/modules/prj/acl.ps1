@@ -12,14 +12,12 @@ $filesystemName = "${Env:fsname}"
 #$users = $users | ConvertFrom-Json
 #$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
-$users = $users.TrimStart('[')
-$users = $users.TrimEnd(']')
-$users = $users -split ' '
-Out-File -FilePath .\output2.txt -InputObject $users
+$usersArray = $users.Trim('[', ']').Split(' ')
+Out-File -FilePath .\output2.txt -InputObject $usersArray
 #$user = "${Env:users}"
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
-foreach ($usr in $users) {
+foreach ($usr in $usersArray) {
     $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName).ACL
     $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID $usr -Permission r-x -InputObject $acl
     Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
