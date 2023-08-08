@@ -39,7 +39,7 @@ module sac 'storage-account-container.bicep' = if (container.enabled) {
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
-  name: 'dmw2dihadbkv01-learning'
+  name: 'dmw2dihadbkv01-learning2'
 }
 
 module acls 'container-acl.bicep' = {
