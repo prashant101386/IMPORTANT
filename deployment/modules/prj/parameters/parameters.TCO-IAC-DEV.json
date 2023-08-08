@@ -47,9 +47,8 @@
         },
         "container": {
             "value": {
-                "enabled": false,
-                "name": "tco",
-                "isRequired": true
+                "enabled": true,
+                "name": "tco"
             }
         },
         "acl": {
