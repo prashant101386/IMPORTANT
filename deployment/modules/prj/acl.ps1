@@ -12,9 +12,7 @@ $filesystemName = "${Env:fsname}"
 #$users = $users | ConvertFrom-Json
 #$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
-$usersArray = $users -split ' '
-Out-File -FilePath .\output1.txt -InputObject $usersArray
-$users = $usersArray.TrimStart('[')
+$users = $users.TrimStart('[')
 $users = $users.TrimEnd(']')
 $users = $users -split ' '
 Out-File -FilePath .\output2.txt -InputObject $users
