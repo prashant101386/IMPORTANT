@@ -9,6 +9,7 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
+Write-Output $users
 $usersArray = $users -split ','
 #$user = "${Env:users}"
 $key = $keys
