@@ -9,10 +9,11 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
-$users = $users.TrimStart('[')
+$users = $users | ConvertFrom-Json
+#$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
-$usersArray = $users -split ','
-Out-File -FilePath .\output1.txt -InputObject $usersArray
+#$usersArray = $users -split ','
+#Out-File -FilePath .\output1.txt -InputObject $usersArray
 #$user = "${Env:users}"
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
