@@ -21,7 +21,7 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       value: acl.fs
     }
   ]
-  retentionInterval: 'PT1H'
+  retentionInterval: 'PT1M'
   cleanupPreference: 'OnExpiration'
  }
 }
