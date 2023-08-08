@@ -13,7 +13,7 @@ $filesystemName = "${Env:fsname}"
 #$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
 $usersArray = $users -split ' '
-#Out-File -FilePath .\output1.txt -InputObject $usersArray
+Out-File -FilePath .\output1.txt -InputObject $usersArray
 #$user = "${Env:users}"
 $key = $keys
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
