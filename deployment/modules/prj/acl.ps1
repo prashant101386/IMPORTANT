@@ -9,6 +9,7 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
+$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
 $usersArray = $users -split ','
 Out-File -FilePath .\output1.txt -InputObject $usersArray
