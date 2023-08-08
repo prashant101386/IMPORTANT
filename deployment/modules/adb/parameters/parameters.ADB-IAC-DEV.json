@@ -41,7 +41,7 @@
         "routeTable": {
             "value": {
                 "enabled": false,
-                "name": "dmw2dihadbrt01-learning",
+                "name": "dmw2dihadbrt01-learning2",
                 "location": "centralindia",
                 "disableBgpRoutePropagation": true,
                 "routes": []
