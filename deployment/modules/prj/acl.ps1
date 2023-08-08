@@ -9,7 +9,7 @@ $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
 # User
-$users = $users | ConvertFrom-Json
+#$users = $users | ConvertFrom-Json
 #$users = $users.TrimStart('[')
 Out-File -FilePath .\output.txt -InputObject $users
 #$usersArray = $users -split ','
