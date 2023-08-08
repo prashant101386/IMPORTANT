@@ -25,5 +25,3 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   cleanupPreference: 'OnExpiration'
  }
 }
-
-output test string = acl.users
