@@ -49,7 +49,7 @@
         },
         "keyVault": {
             "value": {
-                "name": "dmw2dihadbkv01-learning",
+                "name": "dmw2dihadbkv01-learning2",
                 "location": "centralindia",
                 "sku": {
                     "family": "A",
