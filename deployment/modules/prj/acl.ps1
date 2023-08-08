@@ -1,6 +1,5 @@
 # Parameter for holding storage account access key passed from container-acl.bicep as argument.
 param (
-    [string] $keys,
     [string] $users
 )
 
@@ -8,6 +7,7 @@ param (
 $storageAccountName = "${Env:saname}"
 # Filesystem name or container name passed as environment variable
 $filesystemName = "${Env:fsname}"
+
 # User
 #$users = $users | ConvertFrom-Json
 #$users = $users.TrimStart('[')
@@ -15,7 +15,7 @@ Out-File -FilePath .\output.txt -InputObject $users
 $usersArray = $users.Trim('[', ']').Split(' ')
 Out-File -FilePath .\output2.txt -InputObject $usersArray
 #$user = "${Env:users}"
-$key = $keys
+$key = ${Env:keys}
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 foreach ($usr in $usersArray) {
     $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName).ACL
