@@ -9,10 +9,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (clus
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-    //primaryScriptUri: './pat.ps1'
-    scriptContent: '''
-      ./pat.ps1
-    '''
+    primaryScriptUri: 'https://dmw2dihadbsa01learning.blob.core.windows.net/tco/pat.ps1'
     arguments: '-token ${patToken}'
     cleanupPreference: 'OnExpiration'
     retentionInterval: 'PT1H'
