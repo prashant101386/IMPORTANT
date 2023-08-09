@@ -70,4 +70,4 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
   }
 }
 
-
+//Test Issue 2
