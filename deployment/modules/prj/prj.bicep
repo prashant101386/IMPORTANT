@@ -70,4 +70,5 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
   }
 }
 
+//Test-issue1
 
