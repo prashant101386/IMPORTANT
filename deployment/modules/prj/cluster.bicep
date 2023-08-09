@@ -23,7 +23,7 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-    primaryScriptUri: 'https://raw.githubusercontent.com/prashant101386/IMPORTANT/main/deployment/modules/prj/cluster.ps1'
+    primaryScriptUri: './cluster.ps1'
     arguments: '-token ${token}'
     environmentVariables: [
         {
