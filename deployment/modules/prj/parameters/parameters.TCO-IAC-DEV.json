@@ -56,7 +56,7 @@
                 "location": "centralindia",
                 "name": "dmw2dihadbsa01learning",
                 "fs": "tco",
-                "users": "[\"3b444e5d-5555-4812-8a08-796c4f043618\",\"45cf2157-a31a-4327-b390-237b59924323\"]"
+                "users": "[\"3b444e5d-5555-4812-8a08-796c4f043618:r--\",\"45cf2157-a31a-4327-b390-237b59924323:rw-\"]"
             }
         }
     }
