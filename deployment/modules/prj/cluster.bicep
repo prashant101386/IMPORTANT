@@ -2,6 +2,8 @@ param cluster object
 param dbInstance object
 @secure()
 param token string
+@secure()
+param clusterscripturl string
 /*
 resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'createpat'
@@ -23,7 +25,7 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-    primaryScriptUri: 'https://dmw2dihadbsa01learning.blob.core.windows.net/tco/cluster.ps1?sp=r&st=2023-08-09T20:02:11Z&se=2023-08-11T04:02:11Z&spr=https&sv=2022-11-02&sr=b&sig=PisJYdGOKbbQzhhVc%2FxNZhvT8XYQ3KHhv%2FEY6kXaMcE%3D'
+    primaryScriptUri: '${clusterscripturl}'
     arguments: '-token ${token}'
     environmentVariables: [
         {
