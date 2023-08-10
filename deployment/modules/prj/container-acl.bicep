@@ -1,8 +1,6 @@
 param acl object
 @secure()
 param key string
-@secure()
-param aclscripturl string
 
 resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
  name: 'createacl'
@@ -11,7 +9,7 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
  
  properties: {
   azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-  primaryScriptUri: '${aclscripturl}'
+  scriptContent: loadTextContent('acl.ps1')
   arguments: '-users "${acl.users}"'
   environmentVariables: [
     {

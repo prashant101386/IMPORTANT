@@ -48,7 +48,6 @@ module acls 'container-acl.bicep' = {
   params: {
     acl:acl
     key: keyVault1.getSecret('NEWSaKey')
-    aclscripturl: keyVault1.getSecret('acl')
   }
 }
 
@@ -58,7 +57,6 @@ module pats 'pat.bicep' = if (cluster.enabled) {
   params: {
     cluster: cluster
     patToken: keyVault1.getSecret('adminpat1')
-    patscripturl: keyVault1.getSecret('pat')
   }
 }
 
@@ -69,7 +67,6 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
     cluster: cluster
     dbInstance: dbInstance
     token: pats.outputs.pat
-    clusterscripturl: keyVault1.getSecret('cluster')
   }
 }
 
