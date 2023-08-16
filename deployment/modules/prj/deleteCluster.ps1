@@ -8,11 +8,11 @@ $headers = @{
     "Content-Type" = "application/json"
 }
 
-$clusterName = "learningcluster101386"
+$clusterId = "0816-160959-ya4b8twc"
 $resourceGroupName = "diff"
 
 $body = @{
-    "cluster_name" = $clusterName
+    "cluster_id" = $clusterId
 }
 $jsonBody = $body | ConvertTo-Json
 
