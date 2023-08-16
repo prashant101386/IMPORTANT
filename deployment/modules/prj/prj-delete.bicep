@@ -1,5 +1,13 @@
+param subscriptionId string = ''
+param resourceGroupName string
+param location string
+param tags object
+param keyVault object
+param container object
 param cluster object
 param dbInstance object
+param storageAccount object
+param acl object
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
