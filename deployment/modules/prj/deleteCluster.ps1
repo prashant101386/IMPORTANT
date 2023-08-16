@@ -7,9 +7,10 @@ $headers = @{
     "Authorization" = "Bearer $patToken"
     "Content-Type" = "application/json"
 }
+$ClusterName = "learningcluster101386"
+$Cluster = Get-DatabricksClusters -Bearer $patToken -Region "centralindia" | Where-Object {$_.cluster_name -eq $ClusterName}
 
-$clusterId = "0816-160959-ya4b8twc"
-$resourceGroupName = "diff"
+$clusterId = $Cluster.cluster_id
 
 $body = @{
     "cluster_id" = $clusterId
