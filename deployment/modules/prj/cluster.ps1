@@ -1,17 +1,12 @@
-param(
-    [string] $token,
-    [array] $dbInstances
-    )
+param([string] $token)
 
-
-foreach ($clusterConfig in $dbInstances) {
-$baseUrl = $clusterConfig.url
-$numworker = $clusterConfig.num
-$type = $clusterConfig.nodeType
+$baseUrl = "${Env:URL}"
+$numworker = "${Env:numofworker}"
+$type = "${Env:nodetype}"
 $patToken = "${token}" 
-$sparkversion = $clusterConfig.sparkversion
-$executormemory = $clusterConfig.executormemory
-$drivermemory = $clusterConfig.drivermemory
+$sparkversion = "${Env:sparkversion}"
+$executormemory = "${Env:executormemory}"
+$drivermemory = "${Env:drivermemory}"
 
 $headers = @{
     "Authorization" = "Bearer $patToken"
@@ -44,5 +39,3 @@ $jsonBody = $body | ConvertTo-Json
 $uri = "$baseUrl/clusters/create"
 
 Invoke-RestMethod -Uri $uri -Headers $headers -Method Post -Body $jsonBody
-
-}
