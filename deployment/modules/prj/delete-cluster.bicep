@@ -21,10 +21,6 @@ resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
           name: 'clustername'
           value: dbInstance.name
       }
-      {
-          name: 'numofworker'
-          value: dbInstance.num
-      }
     ]
     timeout: 'PT30M'
     cleanupPreference: 'OnExpiration'
