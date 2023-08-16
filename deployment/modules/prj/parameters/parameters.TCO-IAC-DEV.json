@@ -31,15 +31,26 @@
             }
         },
         "dbInstance": {
-            "value": {
-                "name": "learningcluster101386",
+            "value": [
+                {
+                "name": "learningcluster2",
+                "url": "https://adb-6384764012615846.6.azuredatabricks.net/api/2.0",
+                "num": 0,
+                "nodeType": "Standard_DS3_v2",
+                "sparkversion": "7.3.x-scala2.12",
+                "executormemory": "2g",
+                "drivermemory": "2g"
+                },
+                {
+                "name": "learningcluster1",
                 "url": "https://adb-6384764012615846.6.azuredatabricks.net/api/2.0",
                 "num": 0,
                 "nodeType": "Standard_DS3_v2",
                 "sparkversion": "7.3.x-scala2.12",
                 "executormemory": "4g",
                 "drivermemory": "4g"
-            }
+                }
+            ]
         },
         "storageAccount": {
             "value": {
