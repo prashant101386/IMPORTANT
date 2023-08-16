@@ -31,6 +31,10 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
             value: dbInstance.url
         }
         {
+            name: 'clustername'
+            value: dbInstance.name
+        }
+        {
             name: 'numofworker'
             value: dbInstance.num
         }

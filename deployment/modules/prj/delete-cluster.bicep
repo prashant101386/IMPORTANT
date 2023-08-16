@@ -3,7 +3,7 @@ param dbInstance object
 @secure()
 param token string
 
-resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
+resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
   name: 'deletecompute'
   location: cluster.location
   kind: 'AzurePowerShell'
@@ -16,6 +16,10 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
       {
           name: 'URL'
           value: dbInstance.url
+      }
+      {
+          name: 'clustername'
+          value: dbInstance.name
       }
       {
           name: 'numofworker'

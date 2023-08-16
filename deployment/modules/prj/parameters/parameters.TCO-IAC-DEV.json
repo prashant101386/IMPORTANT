@@ -32,6 +32,7 @@
         },
         "dbInstance": {
             "value": {
+                "name": "learningcluster101386",
                 "url": "https://adb-6384764012615846.6.azuredatabricks.net/api/2.0",
                 "num": 0,
                 "nodeType": "Standard_DS3_v2",
