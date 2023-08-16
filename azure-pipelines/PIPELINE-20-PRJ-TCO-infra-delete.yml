@@ -11,6 +11,14 @@ pool:
   vmImage: $(VM_VERSION)
 
 stages:
+
+# Lint the Bicep file
+- stage: buildinfra
+  displayName: 'Build Environment'
+  jobs: 
+  - template: templates/run-code-lint.template.yml
+    parameters:
+      module: 'prj'
 # Destroy DEV Environment
 - stage: destroyinfra_dev
   displayName: 'Delete DEV Environment'
@@ -26,4 +34,4 @@ stages:
       location: $(LOCATION)
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
-      project: 'TCO' 
+      project: 'TCO'
