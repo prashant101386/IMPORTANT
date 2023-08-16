@@ -7,13 +7,33 @@ $headers = @{
     "Authorization" = "Bearer $patToken"
     "Content-Type" = "application/json"
 }
-$ClusterName = "learningcluster101386"
-$Cluster = Get-DatabricksClusters -Bearer $patToken -Region "centralindia" | Where-Object {$_.cluster_name -eq $ClusterName}
 
-$clusterId = $Cluster.cluster_id
+# Set other variables
+$workspace = "https://adb-6384764012615846.6.azuredatabricks.net"
+$clusterName = "learningcluster101386" # Replace with the actual cluster name
+
+# Construct the API URL to list all clusters
+$apiUrl = "$workspace/api/2.0/clusters/list"
+
+# Invoke the API request
+$response = Invoke-WebRequest -Uri $apiUrl -Headers @{ Authorization = "Bearer $token" }
+
+# Convert the JSON response to a PowerShell object
+$clusterList = $response.Content | ConvertFrom-Json
+
+# Find the cluster ID for the provided cluster name
+$retrievedCluster = $clusterList.clusters | Where-Object { $_.cluster_name -eq $clusterName }
+
+# Check if the cluster was found and display the cluster ID
+if ($retrievedCluster) {
+    $retrievedClusterId = $retrievedCluster.cluster_id
+    Write-Host "Retrieved Cluster ID: $retrievedClusterId"
+} else {
+    Write-Host "Cluster with name '$clusterName' not found."
+}
 
 $body = @{
-    "cluster_id" = $clusterId
+    "cluster_id" = $retrievedClusterId
 }
 $jsonBody = $body | ConvertTo-Json
 
