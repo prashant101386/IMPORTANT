@@ -10,7 +10,7 @@ $headers = @{
 
 # Set other variables
 $workspace = "https://adb-6384764012615846.6.azuredatabricks.net"
-$clusterName = "learningcluster101386" # Replace with the actual cluster name
+$clusterName = "learning23" # Replace with the actual cluster name
 
 # Construct the API URL to list all clusters
 $apiUrl = "$workspace/api/2.0/clusters/list"
