@@ -4,7 +4,7 @@ param dbInstance object
 param token string
 
 resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
-  name: 'createcompute'
+  name: 'deletecompute'
   location: cluster.location
   kind: 'AzurePowerShell'
 
