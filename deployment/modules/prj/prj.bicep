@@ -5,7 +5,7 @@ param tags object
 param keyVault object
 param container object
 param cluster object
-param dbInstance object
+param dbInstances array
 param storageAccount object
 param acl object
 param deletecontainer object
@@ -66,7 +66,7 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
   name: 'createcluster'
   params: {
     cluster: cluster
-    dbInstance: dbInstance
+    dbInstances: dbInstances
     token: pats.outputs.pat
   }
 }
