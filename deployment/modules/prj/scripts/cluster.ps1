@@ -23,7 +23,7 @@ $clusterConfig = @{
     }
 }
 
-$clusterName = "learningcluster101386"
+$clusterName = "${Env:clustername}"
 $resourceGroupName = "diff"
 
 $body = @{
