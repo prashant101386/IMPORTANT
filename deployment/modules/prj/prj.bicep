@@ -8,6 +8,7 @@ param cluster object
 param dbInstance object
 param storageAccount object
 param acl object
+param deletecontainer object
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName

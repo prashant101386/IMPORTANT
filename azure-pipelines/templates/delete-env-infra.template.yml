@@ -24,14 +24,6 @@ jobs:
           steps:
             - checkout: self
 
-            - task: AzureCLI@2
-              displayName: 'Delete Resource Group'
-              inputs:
-                azureSubscription: ${{parameters.serviceConnection}}
-                scriptType: 'bash'
-                scriptLocation: 'inlineScript'
-                inlineScript: |
-                  az group delete --name ${{parameters.resourceGroup}} --yes
             - task: AzureResourceManagerTemplateDeployment@3
               name: RunPreflightValidation
               displayName: Run preflight validation
@@ -58,3 +50,11 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
+            - task: AzureCLI@2
+              displayName: 'Delete Resource Group'
+              inputs:
+                azureSubscription: ${{parameters.serviceConnection}}
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
+                inlineScript: |
+                  az group delete --name ${{parameters.resourceGroup}} --yes
