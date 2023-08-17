@@ -17,8 +17,9 @@ Out-File -FilePath .\output2.txt -InputObject $usersArray
 #$user = "${Env:users}"
 $key = ${Env:keys}
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
-foreach ($usr in $usersArray) {
+foreach ($userPermissionPair in $usersArray) {
+    $user, $upermission = $userPermissionPair -split ':'
     $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName).ACL
-    $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID $usr -Permission r-x -InputObject $acl
+    $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID $user -Permission $upermission -InputObject $acl
     Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
 }
