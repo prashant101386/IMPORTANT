@@ -27,6 +27,7 @@ if ($retrievedCluster) {
     Write-Host "Retrieved Cluster ID: $retrievedClusterId"
 } else {
     Write-Host "Cluster with name '$clusterName' not found."
+    Exit
 }
 
 $body = @{
