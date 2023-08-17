@@ -10,7 +10,7 @@ resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
 
   properties: {
     azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
-    scriptContent: loadTextContent('deleteCluster.ps1')
+    scriptContent: loadTextContent('./scripts/deleteCluster.ps1')
     arguments: '-token ${token}'
     environmentVariables: [
       {

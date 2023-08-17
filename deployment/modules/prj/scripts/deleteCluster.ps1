@@ -8,13 +8,11 @@ $headers = @{
     "Content-Type" = "application/json"
 }
 
-# Set other variables
-$clusterName = "${Env:clustername}" # Replace with the actual cluster name
+$clusterName = "${Env:clustername}"
 
 # Construct the API URL to list all clusters
 $apiUrl = "$baseUrl/clusters/list"
 
-# Invoke the API request
 $response = Invoke-WebRequest -Uri $apiUrl -Headers @{ Authorization = "Bearer $token" }
 
 # Convert the JSON response to a PowerShell object
