@@ -2,7 +2,7 @@
 
 parameters:
   - name: deletecontainer
-    displayName: Retain Container
+    displayName: Delete Container
     type: string
     values:
     - true
