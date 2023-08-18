@@ -76,6 +76,9 @@
                 "location": "centralindia",
                 "enabled": true
             }
+        },
+        "deletestoragecontainer": {
+            "value": true
         }
     }
 }

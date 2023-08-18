@@ -9,6 +9,7 @@ param dbInstances array
 param storageAccount object
 param acl object
 param deletecontainer object
+param deletestoragecontainer bool
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
@@ -34,7 +35,7 @@ module deletecompute 'delete-cluster.bicep' = {
   }
 }
 
-module removecontainer 'delete-container.bicep' = if (deletecontainer.enabled) {
+module removecontainer 'delete-container.bicep' = if (deletestoragecontainer) {
   scope: resourceGroup('dmw2dihadbrg01-learning')
   name: 'deletecontainer'
   params: {
