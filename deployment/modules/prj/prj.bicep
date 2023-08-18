@@ -9,6 +9,7 @@ param dbInstances array
 param storageAccount object
 param acl object
 param deletecontainer object
+param deletestoragecontainer bool
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
