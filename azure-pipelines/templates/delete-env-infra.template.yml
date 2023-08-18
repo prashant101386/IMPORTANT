@@ -14,11 +14,7 @@ parameters:
   - name: project
     type: string
   - name: removecontainer
-    displayName: Retain Container
     type: string
-    values:
-    - true
-    - false
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment
