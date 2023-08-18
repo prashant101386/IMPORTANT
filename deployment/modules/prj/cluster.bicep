@@ -17,7 +17,7 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 }
 */
 resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = [for dbInstance in dbInstances: {
-  name: 'createcompute'
+  name: 'createcompute${uniqueString(dbInstance.name)}'
   location: cluster.location
   kind: 'AzurePowerShell'
 
