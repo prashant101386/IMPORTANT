@@ -1,5 +1,5 @@
 param cluster object
-param dbInstance object
+param dbInstances array
 @secure()
 param token string
 /*
@@ -16,8 +16,8 @@ resource createpat 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   }
 }
 */
-resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
-  name: 'createcompute'
+resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = [for dbInstance in dbInstances: {
+  name: 'createcompute${uniqueString(dbInstance.name)}'
   location: cluster.location
   kind: 'AzurePowerShell'
 
@@ -60,3 +60,4 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
     retentionInterval: 'PT1H'
   }
 }
+]

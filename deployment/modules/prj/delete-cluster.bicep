@@ -1,10 +1,10 @@
 param cluster object
-param dbInstance object
+param dbInstances array
 @secure()
 param token string
 
-resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (cluster.enabled) {
-  name: 'deletecompute'
+resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = [for dbInstance in dbInstances: {
+  name: 'deletecompute${uniqueString(dbInstance.name)}'
   location: cluster.location
   kind: 'AzurePowerShell'
 
@@ -27,3 +27,4 @@ resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (
     retentionInterval: 'PT1H'
   }
 }
+]
