@@ -26,7 +26,7 @@
         },
         "cluster": {
             "value": {
-                "enabled": true,
+                "enabled": false,
                 "location": "centralindia"
             }
         },
