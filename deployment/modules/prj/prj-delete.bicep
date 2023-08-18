@@ -5,7 +5,7 @@ param tags object
 param keyVault object
 param container object
 param cluster object
-param dbInstance object
+param dbInstances array
 param storageAccount object
 param acl object
 param deletecontainer object
@@ -29,7 +29,7 @@ module deletecompute 'delete-cluster.bicep' = {
   name: 'deletecluster'
   params: {
     cluster: cluster
-    dbInstance: dbInstance
+    dbInstances: dbInstances
     token: pats.outputs.pat
   }
 }
