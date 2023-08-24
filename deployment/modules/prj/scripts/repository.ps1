@@ -1,8 +1,5 @@
 $repoName = "${Env:reponame}"
-$Organization = "prashant101386"
 $AccessToken = "${Env:keys}" 
-$GitHubBaseURL = "https://github.com/api/v3"
-$RepoCreationUri = "$GitHubBaseURL/orgs/$Organization/repos"
 $repoExisitFlag = "false"
 
 # Set the headers including the authentication token
@@ -10,7 +7,7 @@ $headers = @{
   Authorization = "Bearer $AccessToken"
   "Content-Type" = "application/json"
 }
-$repositoryApiUrl = "$GitHubBaseURL/repos/$Organization/$repoName"
+$repositoryApiUrl = "https://api.github.com/users/prashant101386/repos"
 
 # checking repository already available.
 Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
