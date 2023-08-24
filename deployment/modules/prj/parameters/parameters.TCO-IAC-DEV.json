@@ -76,6 +76,13 @@
                 "location": "centralindia",
                 "enabled": true
             }
+        },
+        "repository": {
+            "value": {
+                "enabled": true,
+                "name": "repo-tco",
+                "location": "centralindia"
+            }
         }
     }
 }
