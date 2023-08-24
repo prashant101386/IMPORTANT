@@ -24,7 +24,7 @@ else{
   } | ConvertTo-Json
 
   # Make the POST request to create the repository
-  Invoke-RestMethod -Uri $RepoCreationUri -Method POST -Headers $headers -Body $body
+  Invoke-RestMethod -Uri $repositoryApiUrl -Method POST -Headers $headers -Body $body
   $repoExisitFlag = "true"
 }
 if ($repoExisitFlag)
