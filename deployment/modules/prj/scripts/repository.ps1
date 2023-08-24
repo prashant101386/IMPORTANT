@@ -7,7 +7,7 @@ $headers = @{
   Authorization = "Bearer $AccessToken"
   "Content-Type" = "application/json"
 }
-$repositoryApiUrl = "https://api.github.com/users/prashant101386/repos"
+$repositoryApiUrl = "https://api.github.com/repos/prashant101386"
 
 # checking repository already available.
 Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
