@@ -1,7 +1,6 @@
-param ([string] $token)
 $repoName = "${Env:reponame}"
 $Organization = "prashant101386"
-$AccessToken = "${token}" 
+$AccessToken = "${Env:keys}" 
 $GitHubBaseURL = "https://github.com/api/v3"
 $RepoCreationUri = "$GitHubBaseURL/orgs/$Organization/repos"
 $repoExisitFlag = "false"
