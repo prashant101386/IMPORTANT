@@ -1,13 +1,14 @@
 $repoName = "${Env:reponame}"
 $AccessToken = "${Env:keys}" 
+$username = "prashant101386"
 $repoExisitFlag = "false"
 
 # Set the headers including the authentication token
 $headers = @{
   Authorization = "Bearer $AccessToken"
-  "Content-Type" = "application/json"
+  Accept = "application/vnd.github.v3+json"
 }
-$repositoryApiUrl = "https://api.github.com/prashant101386"
+$repositoryApiUrl = "https://api.github.com/users/$username/repos"
 
 # checking repository already available.
 Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
