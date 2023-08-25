@@ -28,8 +28,3 @@ else{
   Invoke-RestMethod -Uri $repositoryApiUrl -Method POST -Headers $headers -Body $body
   $repoExisitFlag = "true"
 }
-if ($repoExisitFlag)
-{
-  # Can add other tasks after that repository created in this block. Currently skipping..
-  
-}
