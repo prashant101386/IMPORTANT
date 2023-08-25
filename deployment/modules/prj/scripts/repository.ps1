@@ -1,6 +1,5 @@
 $repoName = "${Env:reponame}"
 $AccessToken = "${Env:keys}" 
-$username = "prashant101386"
 $repoExisitFlag = "false"
 
 # Set the headers including the authentication token
@@ -21,7 +20,8 @@ else{
 
   $body = @{
   name = $repoName
-  auto_init = $true
+  auto_init = true
+  private = true
   } | ConvertTo-Json
 
   # Make the POST request to create the repository
