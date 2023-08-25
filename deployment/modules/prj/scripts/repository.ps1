@@ -8,7 +8,7 @@ $headers = @{
   Authorization = "Bearer $AccessToken"
   Accept = "application/vnd.github.v3+json"
 }
-$repositoryApiUrl = "https://api.github.com/users/$username/repos"
+$repositoryApiUrl = "https://api.github.com/repos/$username"
 
 # checking repository already available.
 Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
