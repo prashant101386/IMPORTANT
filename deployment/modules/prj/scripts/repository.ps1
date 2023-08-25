@@ -6,6 +6,7 @@ $repoExisitFlag = "false"
 $headers = @{
   Authorization = "Bearer $AccessToken"
   "Content-Type" = "application/json"
+  "User-Agent" = "Powershell-Script"
 }
 $repositoryApiUrl = "https://api.github.com/user/repos"
 
