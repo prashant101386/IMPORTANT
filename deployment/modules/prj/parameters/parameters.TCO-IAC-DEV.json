@@ -80,6 +80,7 @@
 
         "deletestoragecontainer": {
             "value": true
+        },
       
         "repository": {
             "value": {
