@@ -10,6 +10,7 @@ param storageAccount object
 param acl object
 param deletecontainer object
 param deletestoragecontainer bool
+param repository object
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
