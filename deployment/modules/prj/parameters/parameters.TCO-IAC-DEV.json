@@ -77,8 +77,16 @@
                 "enabled": true
             }
         },
+
         "deletestoragecontainer": {
             "value": true
+      
+        "repository": {
+            "value": {
+                "enabled": true,
+                "name": "repo-tco",
+                "location": "centralindia"
+            }
         }
     }
 }

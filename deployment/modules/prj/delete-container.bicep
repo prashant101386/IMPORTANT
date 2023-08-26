@@ -27,6 +27,6 @@ resource removecontainer 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
     }
   ]
   retentionInterval: 'PT1H'
-  cleanupPreference: 'OnExpiration'
+  cleanupPreference: 'Always'
  }
 }

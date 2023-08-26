@@ -23,7 +23,7 @@ resource deletecluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = [for
       }
     ]
     timeout: 'PT30M'
-    cleanupPreference: 'OnExpiration'
+    cleanupPreference: 'Always'
     retentionInterval: 'PT1H'
   }
 }

@@ -10,6 +10,8 @@ param storageAccount object
 param acl object
 param deletecontainer object
 param deletestoragecontainer bool
+param repository object
+
 
 module rg 'resource-group.bicep' = {
   name: resourceGroupName
@@ -69,6 +71,14 @@ module compute 'cluster.bicep' = if (cluster.enabled) {
     cluster: cluster
     dbInstances: dbInstances
     token: pats.outputs.pat
+  }
+}
+
+module repo 'create-repo.bicep' = if (repository.enabled) {
+  name: repository.name
+  params: {
+    repository:repository
+    key: keyVault1.getSecret('githubtoken')
   }
 }
 
