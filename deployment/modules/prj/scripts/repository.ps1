@@ -11,13 +11,13 @@ $headers = @{
 $repositoryApiUrl = "https://api.github.com/user/repos"
 
 # checking repository already available.
-Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
+$statusCode = Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
 
 Write-Host "Repository check : $statusCode"
 if (($statusCode -eq 200)){ 
   $repoExisitFlag = "true"
 }
-else{
+else {
 
   $body = @{
   name = $repoName
