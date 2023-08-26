@@ -13,6 +13,8 @@ parameters:
     type: string
   - name: project
     type: string
+  - name: removecontainer
+    type: string
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment
@@ -37,6 +39,7 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
+                  -deletestoragecontainer ${{parameters.removecontainer}}
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
@@ -50,6 +53,7 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
+                  -deletestoragecontainer ${{parameters.removecontainer}}
             - task: AzureCLI@2
               displayName: 'Delete Resource Group'
               inputs:

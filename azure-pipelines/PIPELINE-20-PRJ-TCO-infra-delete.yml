@@ -1,5 +1,14 @@
 # Pipeline that destroys TCO resource group and all its resources.
 
+parameters:
+  - name: deletecontainer
+    displayName: Delete Container
+    type: string
+    values:
+    - true
+    - false
+
+
 trigger:
 - none
 
@@ -35,3 +44,4 @@ stages:
       subscription: $(SUBSCRIPTIONID)
       module: 'prj'
       project: 'TCO'
+      removecontainer: '${{parameters.deletecontainer}}'

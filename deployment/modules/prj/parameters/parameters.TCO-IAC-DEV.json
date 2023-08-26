@@ -77,6 +77,10 @@
                 "enabled": true
             }
         },
+
+        "deletestoragecontainer": {
+            "value": true
+      
         "repository": {
             "value": {
                 "enabled": true,
