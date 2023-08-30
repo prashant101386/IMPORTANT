@@ -8,25 +8,29 @@ $headers = @{
   "Content-Type" = "application/json"
   "User-Agent" = "Powershell-Script"
 }
-$checkrepo =  "https://api.github.com/repos/$repoName"
-$repositoryApiUrl = "https://api.github.com/user/repos"
 
-# checking repository already available.
-$statusCode = Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
+# Check if the repository already exists
+$response = Invoke-RestMethod -Uri "https://api.github.com/repos/prashant101386/$repoName" -Headers $headers -Method Get -ErrorAction Stop
 
-Write-Host "Repository check : $statusCode"
-if ($checkrepo){ 
-  Exit
+if ($response.name -eq $repoName) {
+    Write-Host "Repository already exists."
 }
 else {
+    # Create a new repository
+    $repoData = @{
+        name = $repoName
+        description = $repoDescription
+        auto_init = $true
+    }
 
-  $body = @{
-  name = $repoName
-  auto_init = true
-  private = true
-  } | ConvertTo-Json
+    $repoJson = $repoData | ConvertTo-Json
 
-  # Make the POST request to create the repository
-  Invoke-RestMethod -Uri $repositoryApiUrl -Method POST -Headers $headers -Body $body
-  $repoExisitFlag = "true"
+    $response = Invoke-RestMethod -Uri "https://api.github.com/user/repos" -Headers $headers -Method Post -Body $repoJson -ContentType "application/json"
+
+    if ($response.StatusCode -eq 201) {
+        Write-Host "Repository created successfully."
+    }
+    else {
+        Write-Host "Error creating repository."
+    }
 }
