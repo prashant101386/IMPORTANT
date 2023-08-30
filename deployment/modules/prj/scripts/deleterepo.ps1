@@ -11,7 +11,7 @@ $headers = @{
 
 $response = Invoke-RestMethod -Uri $apiUrl -Method Delete -Headers $headers
 
-if ($response.StatusCode -eq 204) {
+if ($response.StatusCode -eq 200) {
     Write-Host "Repository '$repoName' deleted successfully."
 } else {
     Write-Host "Failed to delete repository. Status code: $($response.StatusCode)"
