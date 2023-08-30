@@ -16,6 +16,7 @@ $statusCode = Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method
 Write-Host "Repository check : $statusCode"
 if (($statusCode -eq 200)){ 
   $repoExisitFlag = "true"
+  Exit
 }
 else {
 
