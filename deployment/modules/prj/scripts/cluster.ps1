@@ -34,8 +34,26 @@ $body = @{
     "spark_conf" = $clusterConfig.spark_conf
 }
 
-$jsonBody = $body | ConvertTo-Json
+# Construct the API URL to list all clusters
+$apiUrl = "$baseUrl/clusters/list"
 
-$uri = "$baseUrl/clusters/create"
+$response = Invoke-WebRequest -Uri $apiUrl -Headers @{ Authorization = "Bearer $patToken" }
 
-Invoke-RestMethod -Uri $uri -Headers $headers -Method Post -Body $jsonBody
+# Convert the JSON response to a PowerShell object
+$clusterList = $response.Content | ConvertFrom-Json
+
+# Find the cluster ID for the provided cluster name
+$retrievedCluster = $clusterList.clusters | Where-Object { $_.cluster_name -eq $clusterName }
+
+# Check if the cluster was found and display the cluster ID
+if ($retrievedCluster) {
+    $retrievedClusterId = $retrievedCluster.cluster_id
+    Write-Host "Retrieved Cluster ID: $retrievedClusterId"
+    Exit
+} else {
+    $jsonBody = $body | ConvertTo-Json
+
+    $uri = "$baseUrl/clusters/create"
+    
+    Invoke-RestMethod -Uri $uri -Headers $headers -Method Post -Body $jsonBody
+}
