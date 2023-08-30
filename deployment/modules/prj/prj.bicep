@@ -11,6 +11,8 @@ param acl object
 param deletecontainer object
 param deletestoragecontainer bool
 param repository object
+param deleterepository bool
+param deleterepo object
 
 
 module rg 'resource-group.bicep' = {
