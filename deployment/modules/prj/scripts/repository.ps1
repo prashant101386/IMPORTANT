@@ -19,7 +19,6 @@ else {
     # Create a new repository
     $repoData = @{
         name = $repoName
-        description = $repoDescription
         auto_init = $true
     }
 
