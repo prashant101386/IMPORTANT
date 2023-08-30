@@ -8,14 +8,14 @@ $headers = @{
   "Content-Type" = "application/json"
   "User-Agent" = "Powershell-Script"
 }
+$checkrepo =  "https://api.github.com/repos/$repoName"
 $repositoryApiUrl = "https://api.github.com/user/repos"
 
 # checking repository already available.
 $statusCode = Invoke-RestMethod -Uri $repositoryApiUrl -Headers $headers -Method Get -SkipHttpErrorCheck -StatusCodeVariable 'statusCode'
 
 Write-Host "Repository check : $statusCode"
-if (($statusCode -eq 200)){ 
-  $repoExisitFlag = "true"
+if ($checkrepo){ 
   Exit
 }
 else {
