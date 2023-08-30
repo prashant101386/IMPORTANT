@@ -15,6 +15,8 @@ parameters:
     type: string
   - name: removecontainer
     type: string
+  - name: removerepository
+    type: string
 
 jobs:
   - deployment: ${{parameters.project}}_env_deployment
@@ -40,6 +42,7 @@ jobs:
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
                   -deletestoragecontainer ${{parameters.removecontainer}}
+                  -deleterepository ${{parameters.removerepository}}
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
@@ -54,6 +57,7 @@ jobs:
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
                   -deletestoragecontainer ${{parameters.removecontainer}}
+                  -deleterepository ${{parameters.removerepository}}
             - task: AzureCLI@2
               displayName: 'Delete Resource Group'
               inputs:

@@ -7,6 +7,12 @@ parameters:
     values:
     - true
     - false
+  - name: deleterepo
+    displayName: Delete Repository
+    type: string
+    values:
+    - true
+    - false
 
 
 trigger:
@@ -45,3 +51,4 @@ stages:
       module: 'prj'
       project: 'TCO'
       removecontainer: '${{parameters.deletecontainer}}'
+      removerepository: '${{parameters.deleterepo}}'

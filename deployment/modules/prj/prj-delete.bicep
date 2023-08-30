@@ -11,6 +11,8 @@ param acl object
 param deletecontainer object
 param deletestoragecontainer bool
 param repository object
+param deleterepo object
+param deleterepository bool
 
 resource keyVault1 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   scope: resourceGroup('dmw2dihadbrg01-learning')
@@ -44,5 +46,14 @@ module removecontainer 'delete-container.bicep' = if (deletestoragecontainer) {
     storageaccount: storageAccount
     deletecontainer: deletecontainer
     key: keyVault1.getSecret('NEWSaKey')
+  }
+}
+
+module removerepo 'delete-repo.bicep' = if (deleterepository) {
+  name: 'deleterepo'
+  params: {
+    repository: repository
+    key: keyVault1.getSecret('githubtoken')
+    deleterepo: deleterepo
   }
 }
