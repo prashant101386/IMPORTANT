@@ -21,7 +21,7 @@ resource createrepo 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       }
     ]
   timeout: 'PT30M'
-  cleanupPreference: 'OnExpiration'
+  cleanupPreference: 'Always'
   retentionInterval: 'PT1H'
   }
 }
