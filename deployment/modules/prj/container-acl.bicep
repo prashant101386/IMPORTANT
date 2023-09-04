@@ -1,9 +1,10 @@
 param acl object
 @secure()
 param key string
+param resourcename string = utcNow('d')
 
 resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
- name: 'createacl'
+ name: resourcename
  location: acl.location
  kind: 'AzurePowerShell'
  
