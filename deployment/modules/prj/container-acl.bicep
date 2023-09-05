@@ -1,7 +1,7 @@
 param acl object
 @secure()
 param key string
-param resourcename string = utcNow('')
+param resourcename string = utcNow()
 
 resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
  name: resourcename
