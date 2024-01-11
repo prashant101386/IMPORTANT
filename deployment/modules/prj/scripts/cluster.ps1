@@ -3,6 +3,7 @@ param([string] $token)
 $baseUrl = "${Env:URL}"
 $numworker = "${Env:numofworker}"
 $type = "${Env:nodetype}"
+$drivernodetype = "${Env:drivernodetype}"
 $patToken = "${token}" 
 $sparkversion = "${Env:sparkversion}"
 $executormemory = "${Env:executormemory}"
@@ -16,6 +17,7 @@ $headers = @{
 $clusterConfig = @{
     "num_workers" = $numworker
     "node_type_id" = "$type"
+    "driver_node_type_id" = "$drivernodetype"
     "spark_version" = "$sparkversion"
     "spark_conf" = @{
         "spark.executor.memory" = "$executormemory"

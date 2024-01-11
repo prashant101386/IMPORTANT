@@ -43,6 +43,10 @@ resource createcluster 'Microsoft.Resources/deploymentScripts@2020-10-01' = [for
             value: dbInstance.nodetype
         }
         {
+            name: 'drivernodetype'
+            value: dbInstance.drivernodetype
+        }
+        {
             name: 'sparkversion'
             value: dbInstance.sparkversion
         }
