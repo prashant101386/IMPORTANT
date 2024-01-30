@@ -9,7 +9,9 @@
             "value": "dmw2dihtcorg01-learning"
         },
         "tags": {
-            "value": {}
+            "value": {
+                "value1": "1"
+            }
         },
         "keyVault": {
             "value": {
