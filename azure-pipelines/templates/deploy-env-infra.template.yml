@@ -47,6 +47,9 @@ jobs:
                 resourceGroupName: ${{parameters.resourceGroup}}
                 csmFile: deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep
                 csmParametersFile: deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
+                overrideParameters: >
+                  -subscriptionId ${{parameters.subscription}}
+                  -resourceGroupName ${{parameters.resourceGroup}}
                 Inline: |
                   New-AzResourceGroupDeployment -Confirm -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json
             - task: AzureResourceManagerTemplateDeployment@3
