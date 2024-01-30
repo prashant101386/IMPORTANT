@@ -32,6 +32,7 @@ $body = @{
     "cluster_name" = $clusterName
     "spark_version" = $clusterConfig.spark_version
     "node_type_id" = $clusterConfig.node_type_id
+    "driver_node_type_id" = $clusterConfig.driver_node_type_id
     "num_workers" = $clusterConfig.num_workers
     "spark_conf" = $clusterConfig.spark_conf
 }
