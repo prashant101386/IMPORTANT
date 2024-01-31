@@ -58,7 +58,7 @@ jobs:
                   New-AzResourceGroupDeployment -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json -WhatIf
   - job: manual_approval
     displayName: "Manual Approval"
-    dependsOn: Validate
+    dependsOn: WhatIf
     pool: server
     steps:
       - task: ManualValidation@0
