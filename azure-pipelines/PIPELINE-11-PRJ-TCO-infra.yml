@@ -74,7 +74,7 @@ stages:
   variables:
   - template: ../configurations/prjtco/configuration-infra-DEV.variables.yml
   jobs:
-  - template: templates/deploy-env-infra.template.yml
+  - template: templates/deploy-env-experimental.yml
     parameters:
       environment: TCO-IAC-DEV
       serviceConnection: $(SERVICECONNECTION_RG)
