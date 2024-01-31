@@ -38,10 +38,8 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-  - job: manual_approval
+  - job: whatif
     displayName: "Manual Approval"
-    dependsOn: WhatIf
-    pool: server
     steps:
       - task: AzurePowerShell@5
         name: ValidateDeployment
