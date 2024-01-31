@@ -17,7 +17,7 @@ parameters:
 jobs:
   - job: Validate
   - deployment: ${{parameters.project}}_env_deployment
-    displayName: "${{parameters.project}} Environment Deployment"
+    displayName: "validation"
     environment: ${{parameters.environment}}
     strategy:
       runOnce:
