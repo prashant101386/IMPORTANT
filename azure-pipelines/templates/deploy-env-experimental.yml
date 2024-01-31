@@ -43,7 +43,7 @@ jobs:
     steps:
       - task: AzurePowerShell@5
         name: ValidateDeployment
-        displayName: Validate deployment
+        displayName: Running WhatIf
         inputs:
           azureSubscription: ${{parameters.serviceConnection}}
           azurePowerShellVersion: LatestVersion
