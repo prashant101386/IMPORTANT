@@ -47,11 +47,11 @@ jobs:
         name: ValidateDeployment
         displayName: Validate deployment
         inputs:
-        azureSubscription: ${{parameters.serviceConnection}}
-        azurePowerShellVersion: LatestVersion
-        ScriptType: 'InlineScript'
-        Inline: |
-          New-AzResourceGroupDeployment -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json -WhatIf
+          azureSubscription: ${{parameters.serviceConnection}}
+          azurePowerShellVersion: LatestVersion
+          ScriptType: 'InlineScript'
+          Inline: |
+            New-AzResourceGroupDeployment -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json -WhatIf
   - job: manual_approval
     displayName: "Manual Approval"
     dependsOn: WhatIf
