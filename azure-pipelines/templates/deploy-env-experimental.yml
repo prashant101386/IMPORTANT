@@ -50,6 +50,7 @@ jobs:
   - job: Deploy
   - deployment: ${{parameters.project}}_env_deployment2
     displayName: "${{parameters.project}} Environment Deployment"
+    dependsOn: manual_approval
     environment: ${{parameters.environment}}
     strategy:
       runOnce:
