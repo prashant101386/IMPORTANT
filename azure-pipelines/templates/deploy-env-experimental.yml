@@ -16,7 +16,7 @@ parameters:
 
 jobs:
   - job: Validate
-  - deployment: ${{parameters.project}}_env_deployment
+  - deployment: ${{parameters.project}}_env_deployment1
     displayName: "validation"
     environment: ${{parameters.environment}}
     strategy:
@@ -48,7 +48,7 @@ jobs:
         inputs:
           instructions: "Hi, please validate"
   - job: Deploy
-  - deployment: ${{parameters.project}}_env_deployment
+  - deployment: ${{parameters.project}}_env_deployment2
     displayName: "${{parameters.project}} Environment Deployment"
     environment: ${{parameters.environment}}
     strategy:
