@@ -18,6 +18,7 @@ jobs:
   - deployment: ${{parameters.project}}_env_deployment
     displayName: "${{parameters.project}} Environment Deployment"
     environment: ${{parameters.environment}}
+    pool: server
     strategy:
       runOnce:
         deploy:
