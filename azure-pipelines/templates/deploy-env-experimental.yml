@@ -16,7 +16,7 @@ parameters:
 
 jobs:
 
-  - deployment: ${{parameters.project}}_env_deployment1
+  - job: ${{parameters.project}}_env_deployment1
     displayName: "validation"
     environment: ${{parameters.environment}}
     strategy:
@@ -39,7 +39,8 @@ jobs:
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
   - job: whatif
-    displayName: "Manual Approval"
+    displayName: "WhatIf"
+    dependsOn: ${{parameters.project}}_env_deployment1
     steps:
       - task: AzurePowerShell@5
         name: ValidateDeployment
