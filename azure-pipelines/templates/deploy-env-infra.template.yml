@@ -37,10 +37,19 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
+jobs:
+  - deployment: ${{parameters.project}}_env_deployment
+    displayName: "${{parameters.project}} Environment Deployment"
+    environment: ${{parameters.environment}}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - checkout: self
+            
             - task: AzurePowerShell@5
               name: ValidateDeployment
               displayName: Validate deployment
-              environment: ${{parameters.environment}}
               inputs:
                 azureSubscription: ${{parameters.serviceConnection}}
                 azurePowerShellVersion: LatestVersion
