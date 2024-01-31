@@ -37,19 +37,9 @@ jobs:
                 overrideParameters: >
                   -subscriptionId ${{parameters.subscription}}
                   -resourceGroupName ${{parameters.resourceGroup}}
-            - task: AzurePowerShell@5
-              name: ValidateDeployment
-              displayName: Validate deployment
-              inputs:
-                azureSubscription: ${{parameters.serviceConnection}}
-                azurePowerShellVersion: LatestVersion
-                ScriptType: 'InlineScript'
-                Inline: |
-                  New-AzResourceGroupDeployment -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json -WhatIf
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
-              environment: ${{parameters.environment}}
               inputs:
                 connectedServiceName: ${{parameters.serviceConnection}}
                 location: ${{parameters.location}}
