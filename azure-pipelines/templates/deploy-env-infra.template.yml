@@ -18,7 +18,8 @@ jobs:
   - deployment: ${{parameters.project}}_env_deployment
     displayName: "${{parameters.project}} Environment Deployment"
     environment: ${{parameters.environment}}
-    pool: server
+    pool:
+      vmImage: $(VM_VERSION)
     strategy:
       runOnce:
         deploy:
