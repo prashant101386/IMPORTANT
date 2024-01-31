@@ -40,7 +40,7 @@ jobs:
                   -resourceGroupName ${{parameters.resourceGroup}}
   - job: manual_approval
     displayName: "Manual Approval"
-    dependsOn: terraform_init
+    dependsOn: Validate
     pool: server
     steps:
       - task: ManualValidation@0
