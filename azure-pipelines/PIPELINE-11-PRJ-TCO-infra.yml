@@ -44,6 +44,22 @@ stages:
 #      module: 'prj'
 #      project: 'TCO'
 
+# Validate the bicep deployment
+#- stage: validateinfra_dev
+#  displayName: 'Validate Dev deployment'
+#  dependsOn: buildinfra
+#  variables:
+#  - template: ../configurations/prjtco/configuration-infra-DEV.variables.yml
+#  jobs:
+#  - template: templates/whatif.yml
+#    environment: TCO-IAC-DEV
+#      serviceConnection: $(SERVICECONNECTION_RG)
+#      resourceGroup: $(RESOURCE_GROUP)
+#      location: $(LOCATION)
+#      subscription: $(SUBSCRIPTIONID)
+#      module: 'prj'
+#      project: 'TCO'
+
 ####################
 ##  DEPLOY INFRA  ##
 ####################

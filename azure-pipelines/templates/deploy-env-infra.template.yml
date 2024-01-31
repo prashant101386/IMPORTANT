@@ -18,8 +18,6 @@ jobs:
   - deployment: ${{parameters.project}}_env_deployment
     displayName: "${{parameters.project}} Environment Deployment"
     environment: ${{parameters.environment}}
-    pool:
-      vmImage: $(VM_VERSION)
     strategy:
       runOnce:
         deploy:
@@ -48,14 +46,10 @@ jobs:
                 ScriptType: 'InlineScript'
                 Inline: |
                   New-AzResourceGroupDeployment -ResourceGroupName dmw2dihtcorg01-learning -TemplateFile deployment/modules/${{parameters.module}}/${{parameters.module}}.bicep -TemplateParameterFile deployment/modules/${{parameters.module}}/parameters/parameters.${{parameters.environment}}.json -WhatIf
-            - task: ManualValidation@0
-              timeoutInMinutes: 1440 # task times out in 1 day
-              inputs:
-                notifyUsers: |
-                  prashant.101386@gmail.com
             - task: AzureResourceManagerTemplateDeployment@3
               name: DeployBicepFile
               displayName: Deploy Bicep file
+              environment: ${{parameters.environment}}
               inputs:
                 connectedServiceName: ${{parameters.serviceConnection}}
                 location: ${{parameters.location}}
