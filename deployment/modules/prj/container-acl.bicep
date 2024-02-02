@@ -11,7 +11,7 @@ resource createacl 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
  properties: {
   azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
   scriptContent: loadTextContent('./scripts/acl.ps1')
-  arguments: '-users "${acl.users}"'
+  arguments: '-user ${acl.user} -upermission ${acl.permission} '
   environmentVariables: [
     {
       name: 'saname'
